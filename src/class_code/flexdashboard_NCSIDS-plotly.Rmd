@@ -1,0 +1,98 @@
+---
+title: "North Carolina SIDS"
+author: "Steve Rigdon"
+date: "2022-11-19"
+output: flexdashboard::flex_dashboard
+---
+
+Column {data-width=500}
+--------------------
+```{r}
+##  The word "Column" followed by {data-width= }.  
+##  The number following the equal sign should be between 1 and 1000.  
+##  The sum of the widths of all columns must be 1000.
+##
+##  Use Ctrl-Alt I on a PC to open a blank R chunk.
+## 
+##  The nest line must contain at least 14 dashes.
+```
+
+```{r  include=FALSE}
+##  include=FALSE  supresses output in output
+library( flexdashboard )
+library( rnaturalearth )
+library( nimble )
+library( spdep )
+library( sf )
+library( tmap )
+library( tigris )
+library( plotly )
+library( rgdal )   ##  Will be retired at the end of 2023
+
+data( nc.sids ) 
+
+nc.sids = readOGR(system.file("shapes/sids.shp", package="spData")[1])
+proj4string(nc.sids) = CRS("+proj=longlat +ellps=clrk66")
+row.names(nc.sids) = as.character(nc.sids$FIPS)
+##
+##  I wrote the parameter estimates to a file so we won't have to compute 
+##  them ever time.
+##  Let's read them back in and put them into the  nc.sids@data  object.
+##
+nc.sids.estimates = read.csv( "../../data/NC-SIDS-Estimates.csv" )
+nc.sids@data = nc.sids.estimates
+```
+
+```{r}
+plot_ly( data = nc.sids@data ,
+         x = ~SIDrate79 ,
+         y = ~HB.est.rate ,
+         type = "scatter" ,
+         text = ~NAME
+)
+```
+
+```{r}
+df = mtcars
+df$name = row.names(df)
+fig <- plot_ly( df , 
+                x = ~wt , y = ~hp , z = ~qsec , 
+                color = ~factor(am),
+                colors = c( '#BF382A' , '#0C4B8E' ) , 
+                text = ~name )
+fig <- fig %>% add_markers()
+fig <- fig %>% layout( scene = list( xaxis = list(title = 'Weight'),
+                                     yaxis = list(title = 'Gross horsepower'),
+                                     zaxis = list(title = '1/4 mile time') ) )
+fig
+```
+
+
+
+
+Column {data-width=200}
+------------------------
+
+
+```{r}
+library( DT )
+df = nc.sids.estimates[ , c( "NAME","SIDrate79","HB.est.rate",
+                             "HB.spatial.est.rate","HB.spatialB.est.rate" ) ]
+df$SIDrate79 = round( df$SIDrate79 , 5 )
+df$HB.est.rate = round( df$HB.est.rate , 5 )
+df$HB.spatial.est.rate = round( df$HB.spatial.est.rate , 5 )
+df$HB.spatialB.est.rate = round( df$HB.spatialB.est.rate , 5 )
+DT::datatable( df ,
+               rownames = FALSE , 
+               list( pageLength = 10 ) )
+```
+
+```{r}
+library( DT )
+df = mtcars
+df$name = row.names(df)
+df1 = df[ , c( "name","wt","hp","qsec" ) ]
+DT::datatable( df1 ,
+               rownames = FALSE , 
+               list( pageLength = 10 ) )
+```

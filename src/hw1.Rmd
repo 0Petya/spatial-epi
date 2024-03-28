@@ -1,0 +1,176 @@
+---
+title: "Homework 1"
+author: "Peter Tran"
+output: pdf_document
+---
+
+**BST 5610**
+
+**Spatial Epidemiology and Disease Mapping**
+
+**Homework 1**
+
+**Due 11:59 PM, October 17**
+
+1. Suppose that a test for a disease has three possible outcomes: positive, negative and inconclusive.  If a person has the disease, the probability of testing positive is 0.90, the probability of getting an inconclusive test is 0.06, and the probability of testing negative is 0.04.  On the other hand, if a person does not have the disease, the probability of testing positive is 0.05, the probability of the test being inconclusive is 0.15, and the probability of testing negative is 0.80.  The base rate of the disease in the population is 0.025.  A person is selected at random from the population and tested for the disease
+
+\begin{align*}
+D&=\text{Has disease}\\
+H&=\text{Does not have disease}\\
+P&=\text{Tests positive}\\
+N&=\text{Tests negative}\\
+I&=\text{Tests inconclusive}
+\end{align*}
+
+\begin{align*}
+P(P|D)&=0.90\\
+P(I|D)&=0.06\\
+P(N|D)&=0.04\\
+P(P|H)&=0.05\\
+P(I|H)&=0.15\\
+P(N|H)&=0.80\\
+P(D)&=0.025
+\end{align*}
+
+a. What is the probability that the person tests positive.
+
+\begin{align*}
+P(H)&=1-P(D)\\
+&=1-0.025\\
+&=0.975
+\end{align*}
+
+By the law of total probability
+
+\begin{align*}
+P(P)&=P(P|D)P(D)+P(P|H)P(H)\\
+&=0.90\cdot0.025+0.05\cdot0.975\\
+&=0.07125
+\end{align*}
+
+b. What is the probability that a person who tests positive actually has the disease?
+
+By Baye's theorem
+
+\begin{align*}
+P(D|P)&=\frac{P(P|D)P(D)}{P(P)}\\
+&=\frac{0.90\cdot0.025}{0.07125}\\
+&=\frac{0.0225}{0.07125}\\
+&\approx0.316
+\end{align*}
+
+c. What is the probability that a person who has an inconclusive test actually has the disease?
+
+\begin{align*}
+P(D|I)&=\frac{P(I|D)P(D)}{P(I)}\\
+&=\frac{0.06\cdot0.025}{P(I|D)P(D)+P(I|H)P(H)}\\
+&=\frac{0.0015}{0.06\cdot0.025+0.15\cdot0.975}\\
+&=\frac{0.0015}{14775}\\
+&\approx0.010
+\end{align*}
+
+d. What is the probability that a person who tests negative does not have the disease?
+
+\begin{align*}
+P(H|N)&=\frac{P(N|H)P(H)}{P(N)}\\
+&=\frac{0.80\cdot0.975}{P(N|D)P(D)+P(N|H)P(H)}\\
+&=\frac{0.78}{0.04\cdot0.025+0.80\cdot0.975}\\
+&=\frac{0.78}{0.781}\\
+&\approx0.999
+\end{align*}
+
+2. A sample of size 15 is selected from some population.  The BMI of the person is determined for each of these 15 people.  Assume that the measurements are
+
+28, 32, 21, 23, 22, 25, 28, 19, 26, 27, 34, 22, 18, 26, 28
+
+and that they represent a sample from the $\text{N}(\mu,\sigma^2)$ distribution.  Use the posterior mean to estimate the population mean $\mu$. Use the HDI (highest density interval) to obtain a 95% credible interval for $\mu$.
+
+a. Suppose the prior is the normal-inverse chi-square distribution with 
+
+mu0 = 29
+
+sigma0 = 6
+
+phi0 = sigma0^2
+
+kappa0 = 3
+
+nu0 = 2
+
+Use the analytic method we called Bayesian updating to obtain the point estimate (the posterior mean) and the 95% HDI credible interval for $\mu$.
+
+\begin{align*}
+\bar X&=25.26667\\
+n&=15
+\end{align*}
+
+\begin{align*}
+\hat\mu&=\frac{\kappa_0}{\kappa_0+n}\mu_0+\frac{n}{\kappa_0+n}\bar X\\
+&=\frac{3}{3+15}29+\frac{15}{3+15}25.26667\\
+&\approx25.889
+\end{align*}
+
+I have no clue how to compute the HDI to obtain a credible interval analytically.
+
+b. Suppose we choose independent priors for $\mu$ and $\phi=2$ where $\mu\sim\text{N}(25,5^2)$ and $\phi\sim\text{GAM}(3,0.075)$. Here 3 is the shape parameter and 0.075 is the rate parameter. Use nimble to perform the Markov chain Monte Carlo simulations.  Justify your choice of a burn-in period. Give a point estimate for and give an approximate 95% HDI credible interval for $\mu$.
+
+A prior of 26.55 for $\mu$ was selected as that is roughly the mean BMI of the US population.
+
+A burn-in period of 2000 was selected by examining the posterior sampling distribution for steady state and reconfiguring the burn-in period.
+
+```{r}
+library(nimble)
+
+bmi_code <- nimbleCode({
+  for (i in 1:N) {
+    x[i] ~ dnorm(mu, phi)
+  }
+  mu ~ dnorm(25, 5^2)
+  phi ~ dgamma(3, 0.075)
+})
+
+bmi_data <- list(x = c(28, 32, 21, 23, 22, 25, 28, 19, 26, 27, 34, 22, 18, 26, 28))
+
+bmi_consts <- list(N = length(bmi_data[[1]]))
+
+bmi_inits <- list(mu = 26.55, phi = 2)
+
+bmi_model <- nimbleModel(bmi_code, data = bmi_data, constants = bmi_consts,
+                         inits = bmi_inits)
+bmi_compile <- compileNimble(bmi_model)
+bmi_conf <- configureMCMC(bmi_compile, print = T)
+bmi_conf$addMonitors(c("mu", "phi"))
+bmi_mcmc <- buildMCMC(bmi_conf)
+bmi_mcmc_compile <- compileNimble(bmi_mcmc, project = bmi_model)
+
+bmi_samples <- runMCMC(bmi_mcmc_compile, niter = 10000, nburnin = 2000,
+                       inits = bmi_inits, nchains = 1, samplesAsCodaMCMC = T)
+```
+
+Posterior sampling distribution for $\mu$.
+
+```{r}
+ts.plot(bmi_samples[,"mu"], xlab = "iteration", col = "red", lwd = 1.5,
+        ylab = expression(mu), main = expression(mu))
+```
+
+Posterior sampling distribution for $\phi$.
+
+```{r}
+ts.plot(bmi_samples[,"phi"], xlab = "iteration", col = "red", lwd = 1.5,
+        ylab = expression(phi), main = expression(phi))
+```
+
+Mean point estimate for $\mu$.
+
+```{r}
+mean(bmi_samples[,"mu"])
+```
+
+95% HDI credible interval for $\mu$.
+
+```{r}
+source("./class_code/HDIofMCMC.R")
+
+HDIofMCMC(bmi_samples[,"mu"])
+```

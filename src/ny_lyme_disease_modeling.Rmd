@@ -1,0 +1,221 @@
+---
+title: "NY Lyme Disease Modeling"
+author: "Peter Tran"
+output: html_document
+---
+
+```{r}
+library(ape)
+library(nimble)
+library(rgdal)
+library(spdep)
+library(tidyverse)
+library(tigris)
+library(tmap)
+```
+
+```{r}
+source("./class_code/HDIofMCMC.R")
+```
+
+https://gis.ny.gov/gisdata/inventories/details.cfm?DSID=430
+
+```{r}
+parks <- readOGR(dsn = "../data/oprhp18") %>%
+  st_as_sf()
+```
+
+https://webbi1.health.ny.gov/SASStoredProcess/guest?_program=/EBI/PHIG/apps/chir_dashboard/chir_dashboard&p=it&ind_id=Eg40
+
+```{r}
+ny_lyme <- counties("New York") %>%
+  st_transform(st_crs(parks)) %>%
+  inner_join(read_csv("../data/ny_lyme.csv"), by = c("NAME" = "Region/County")) %>%
+  mutate(cases = (`2017`+`2018`+`2019`)/3) %>%
+  mutate(rate = cases/`Average population`)
+```
+
+```{r}
+moran <- Moran.I(ny_lyme$rate, listw2mat(nb2listw(poly2nb(ny_lyme, queen = F))))
+moran
+```
+
+```{r, fig.width = 12, fig.height = 9}
+lyme_disease_map <- tm_shape(ny_lyme) +
+  tm_polygons(col = "rate") +
+  tm_text("NAME", size = 0.6) +
+  tm_layout(title = "Lyme disease rates in New York", inner.margins = c(0.025, 0.025, 0.025, 0.025), legend.position = c("left", "bottom")) +
+  tm_credits("Moran's I: ~0.54\np-value: <0.001")
+
+lyme_disease_map
+```
+
+```{r, fig.width = 12, fig.height = 9}
+tm_shape(ny_lyme) +
+  tm_polygons(col = "rate") +
+  tm_text("NAME", size = 0.6) +
+  tm_layout(title = "Lyme disease rates in New York\nwith overlayed parks", inner.margins = c(0.025, 0.025, 0.025, 0.025), legend.position = c("left", "bottom")) +
+  tm_shape(parks) +
+  tm_polygons("green")
+```
+
+```{r}
+parks_intersect_area <- st_intersection(ny_lyme, parks) %>%
+  mutate(intersect_area = as.vector(st_area(.))) %>%
+  select(GEOID, intersect_area) %>%
+  st_drop_geometry() %>%
+  group_by(GEOID) %>%
+  dplyr::summarize(park_area = sum(intersect_area))
+
+ny_lyme_parks <- ny_lyme %>%
+  mutate(area = as.vector(st_area(ny_lyme))) %>%
+  left_join(parks_intersect_area, by = "GEOID") %>%
+  mutate(park_area = replace_na(park_area, 0)) %>%
+  mutate(park_coverage = park_area/area)
+```
+
+https://gis.ny.gov/gisdata/inventories/details.cfm?DSID=1365
+
+```{r}
+forests <- st_read(dsn = "../data/ForestPatches_nynhp2019.gdb", layer = "forestpatches_withbarriers_GT100acres") %>%
+  st_transform(st_crs(ny_lyme_parks)) %>%
+  st_cast("MULTIPOLYGON")
+```
+
+```{r, fig.width = 12, fig.height = 9}
+tm_shape(ny_lyme) +
+  tm_polygons(col = "rate") +
+  tm_text("NAME", size = 0.6) +
+  tm_layout(title = "Lyme disease rates in New York\nwith overlayed forests larger than 100 acres", inner.margins = c(0.025, 0.025, 0.025, 0.025), legend.position = c("left", "bottom")) +
+  tm_shape(forests) +
+  tm_polygons("green", alpha = 0.25)
+```
+
+```{r}
+forests_intersect_area <- st_intersection(ny_lyme, forests) %>%
+  mutate(intersect_area = as.vector(st_area(.))) %>%
+  select(GEOID, intersect_area) %>%
+  st_drop_geometry() %>%
+  group_by(GEOID) %>%
+  dplyr::summarize(forest_area = sum(intersect_area))
+
+ny_lyme_parks_forests <- ny_lyme_parks %>%
+  left_join(forests_intersect_area, by = "GEOID") %>%
+  mutate(forest_area = replace_na(forest_area, 0)) %>%
+  mutate(forest_coverage = forest_area/area)
+```
+
+```{r, fig.width = 12, fig.height = 9}
+forests_map <- tm_shape(ny_lyme_parks_forests) +
+  tm_polygons(col = "forest_coverage", palette = "Greens") +
+  tm_text("NAME", size = 0.6) +
+  tm_layout(title = "Forest coverage in New York", inner.margins = c(0.025, 0.025, 0.025, 0.025), legend.position = c("left", "bottom"))
+
+tmap_arrange(lyme_disease_map, forests_map, ncol = 2)
+```
+
+https://www.dec.ny.gov/permits/26368.html
+
+```{r}
+hunting_permits <- read_csv("../data/hunting_permits.csv") %>%
+  mutate(average_permits_sold = (`2017`+`2018`+`2019`)/3) %>%
+  select(County, average_permits_sold)
+
+ny_lyme_parks_forests_permits <- ny_lyme_parks_forests %>%
+  inner_join(hunting_permits, by = c("NAME" = "County"))
+```
+
+```{r, fig.width = 12, fig.height = 9}
+hunting_map <- tm_shape(ny_lyme_parks_forests_permits) +
+  tm_polygons(col = "average_permits_sold") +
+  tm_text("NAME", size = 0.6) +
+  tm_layout(title = "Average number of hunting permits sold in New York", inner.margins = c(0.025, 0.025, 0.025, 0.025), legend.position = c("left", "bottom"))
+
+tmap_arrange(lyme_disease_map, hunting_map, ncol = 2)
+```
+
+```{r}
+data_sp <- as(ny_lyme_parks_forests_permits, "Spatial")
+data_nb <- poly2nb(data_sp, queen = F)
+
+num <- map_int(data_nb, length)
+
+adj <- c()
+for (i in 1:nrow(data_sp))
+  adj <- c(adj, data_nb[[i]])
+```
+
+```{r}
+model_code <- nimbleCode({
+  for (i in 1:N) {
+    y[i] ~ dpois(pop[i]*theta[i])
+    log(theta[i]) <- beta_0 + beta_1*parks[i] + beta_2*forests[i] + beta_3*permits[i] + s[i] + v[i]
+    v[i] ~ dnorm(0, tau_v)
+  }
+  s[1:N] ~ dcar_normal(adj[1:L], weights[1:L], num[1:N], tau_s, zero_mean = 1)
+  beta_0 ~ dnorm(-5, 1/10)
+  beta_1 ~ dnorm(0, 1/10)
+  beta_2 ~ dnorm(0, 1/10)
+  beta_3 ~ dnorm(0, 1/10)
+  tau_v ~ dgamma(1, 1/10000)
+  tau_s ~ dgamma(1, 1/10000)
+})
+
+model_data <- list(y = round(ny_lyme_parks_forests_permits$cases))
+
+model_consts <- list(N = nrow(ny_lyme_parks_forests_permits), pop = ny_lyme_parks_forests_permits$`Average population`, adj = adj, num = num, L = length(adj), weights = rep(1, length(adj)), parks = ny_lyme_parks_forests_permits$park_coverage, forests = ny_lyme_parks_forests_permits$forest_coverage, permits = ny_lyme_parks_forests_permits$average_permits_sold)
+
+model_inits <- list(beta_0 = -5, beta_1 = 0, beta_2 = 0, beta_3 = 0, v = rep(0, nrow(ny_lyme_parks_forests_permits)), tau_v = 0.1, s = rep(0, nrow(ny_lyme_parks_forests_permits)), tau_s = 0.1)
+
+model <- nimbleModel(model_code, data = model_data, constants = model_consts, inits = model_inits)
+model_compile <- compileNimble(model)
+model_conf <- configureMCMC(model_compile, print = T, thin = 100, enableWAIC = T)
+model_conf$addMonitors(c("beta_0", "beta_1", "beta_2", "beta_3", "tau_s", "tau_v", "theta"))
+model_mcmc <- buildMCMC(model_conf)
+model_mcmc_compile <- compileNimble(model_mcmc, project = model)
+
+model_samples <- runMCMC(model_mcmc_compile, niter = 1200000, nburnin = 200000, inits = model_inits, nchains = 1, samplesAsCodaMCMC = T, WAIC = T)
+```
+
+```{r}
+ts.plot(model_samples$samples[,"beta_0"], xlab = "iteration", col = "red", lwd = 1.5, ylab = expression(beta_0), main = expression(beta_0))
+
+ts.plot(model_samples$samples[,"beta_1"], xlab = "iteration", col = "red", lwd = 1.5, ylab = expression(beta_1), main = expression(beta_1))
+
+ts.plot(model_samples$samples[,"beta_2"], xlab = "iteration", col = "red", lwd = 1.5, ylab = expression(beta_2), main = expression(beta_2))
+
+ts.plot(model_samples$samples[,"beta_3"], xlab = "iteration", col = "red", lwd = 1.5, ylab = expression(beta_3), main = expression(beta_3))
+
+ts.plot(model_samples$samples[,"tau_v"], xlab = "iteration", col = "red", lwd = 1.5, ylab = expression(tau_v), main = expression(tau_v))
+
+ts.plot(model_samples$samples[,"tau_s"], xlab = "iteration", col = "red", lwd = 1.5, ylab = expression(tau_s), main = expression(tau_s))
+```
+
+```{r}
+HDIofMCMC(model_samples$samples[,"beta_1"])
+HDIofMCMC(model_samples$samples[,"beta_2"])
+HDIofMCMC(model_samples$samples[,"beta_3"])
+```
+
+```{r}
+ggplot(as.data.frame(model_samples$samples), aes(x = beta_1)) + geom_density()
+ggplot(as.data.frame(model_samples$samples), aes(x = beta_2)) + geom_density()
+ggplot(as.data.frame(model_samples$samples), aes(x = beta_3)) + geom_density()
+```
+
+```{r}
+mean(model_samples$samples[,"beta_1"])
+mean(model_samples$samples[,"beta_2"])
+mean(model_samples$samples[,"beta_3"])
+```
+
+```{r, fig.width = 12, fig.height = 9}
+ny_lyme_parks_forests_permits$model_rates <- apply(model_samples$samples[,7:ncol(model_samples$samples)], 2, mean)
+
+model_lyme_disease_map <- tm_shape(ny_lyme_parks_forests_permits) +
+  tm_polygons(col = "model_rates") +
+  tm_text("NAME", size = 0.6) +
+  tm_layout(title = "Model lyme disease rates in New York", inner.margins = c(0.025, 0.025, 0.025, 0.025), legend.position = c("left", "bottom"))
+
+tmap_arrange(lyme_disease_map, model_lyme_disease_map, ncol = 2)
+```

@@ -1,0 +1,141 @@
+---
+title: "North Carolina SIDS"
+author: "Steve Rigdon"
+date: "2022-11-19"
+output: flexdashboard::flex_dashboard
+---
+
+Column {data-width=500}
+--------------------
+```{r}
+##  The word "Column" followed by {data-width= }.  
+##  The number following the equal sign should be between 1 and 1000.  
+##  The sum of the widths of all columns must be 1000.
+##
+##  Use Ctrl-Alt I on a PC to open a blank R chunk.
+## 
+##  The nest line must contain at least 14 dashes.
+```
+
+
+
+```{r  include=FALSE}
+```
+
+
+```{r  include=FALSE}
+##  include=FALSE  supresses output in output
+library( flexdashboard )
+library( rnaturalearth )
+library( nimble )
+library( spdep )
+library( sf )
+library( tmap )
+library( tigris )
+library( rgdal )   ##  Will be retired at the end of 2023
+
+data( nc.sids ) 
+
+nc.sids = readOGR(system.file("shapes/sids.shp", package="spData")[1])
+proj4string(nc.sids) = CRS("+proj=longlat +ellps=clrk66")
+row.names(nc.sids) = as.character(nc.sids$FIPS)
+```
+
+```{r}
+tm_shape( nc.sids ) +
+  tm_polygons( col="gray" ) +
+  tm_text( "NAME" , "lon" , "lat" , size=0.6 , col="black")
+```
+
+```{r}
+nc.sids.nb = poly2nb( nc.sids )
+nc.sids.net = nb2lines( nc.sids.nb , coords=coordinates(nc.sids) )
+
+tm_shape( nc.sids ) +
+  tm_borders( col="darkgray" ) +
+  tm_shape( nc.sids.net ) +
+  tm_lines( col="darkgreen" , lwd=2 )
+
+```
+
+Column {data-width=500}
+--------------------
+```{r}
+nc.data = dplyr::select( nc.sids@data , NAME , FIPSNO , BIR74 , SID74 , NWBIR74 , 
+                         BIR79 , SID79 , NWBIR79 , x , y , lon , lat )
+
+nc.data$SIDrate74 = nc.data$SID74/nc.data$BIR74
+nc.data$SIDrate79 = nc.data$SID79/nc.data$BIR79
+nc.sids@data = nc.data    ## This replaces the data with the smaller set.
+
+tm_shape( nc.sids ) +
+  tm_polygons( col="SIDrate79" , border.col="black" ) +
+  tm_text( "NAME" , "lon" , "lat" , size=0.6 , col="black" ) +
+  tm_layout("SIDS Raw Rates", title.size=1)
+```
+
+```{r include=FALSE}
+nc.sids.nb = poly2nb( nc.sids )
+nc.sids.lw = nb2listw( nc.sids.nb )
+
+k = nrow( nc.sids@data )
+num = rep(0,k)
+for (i in 1:k) num[i] = length( nc.sids.lw$neighbours[[i]] )
+adj = c()
+for (i in 1:k) adj = c(adj,nc.sids.lw$neighbours[[i]] )
+L = length(adj)
+
+spatialCode = nimbleCode({
+  mu ~ dflat()
+  tau ~ dgamma( 1 , 0.001 )
+  for (i in 1:L)
+    weights[i]  <-  1
+  s[1:k] ~ dcar_normal(adj[1:L],weights[1:L],num[1:k],tau,zero_mean=1)
+  for (i in 1:k) {
+    log(theta[i])  <-  mu + s[i]
+    y[i] ~ dpois( BIR79[i]*theta[i] )
+  }  
+})
+
+constants = list( k=k , L=L , num=num , adj=adj , BIR79=nc.sids$BIR79 )
+data = list( y=nc.sids$SID79 )
+inits = list( mu=0 , tau=1 , s=rep(0,k) )
+
+nc.sids.spatial.model = nimbleModel( code=spatialCode , 
+                                     constants=constants , 
+                                     data=data ,
+                                     inits=inits )
+
+compile.nc.sids.spatial.model = compileNimble( nc.sids.spatial.model )
+
+nc.sids.spatial.model.Conf = configureMCMC( nc.sids.spatial.model , print = TRUE )
+
+nc.sids.spatial.model.Conf$addMonitors(c("mu","tau","theta"))
+
+nc.sids.spatial.model.MCMC = buildMCMC( nc.sids.spatial.model.Conf )
+
+compile.nc.sids.spatial.MCMC = compileNimble( nc.sids.spatial.model.MCMC )
+
+niter = 21000
+nburn =  1000
+set.seed(1)
+
+start.time = proc.time()
+samples.spatial = runMCMC( compile.nc.sids.spatial.MCMC, niter = niter, 
+                           nburnin = nburn, inits = inits, nchains = 1, 
+                           samplesAsCodaMCMC = TRUE )
+stop.time = proc.time()
+time.elapsed = stop.time - start.time
+
+samples1 = samples.spatial
+theta.HB.spatial = apply( samples1[,3:102] , 2 , mean )
+nc.sids$HB.spatial.est.rate = theta.HB.spatial
+```
+```{r}
+plot( nc.sids$SIDrate79 ,  nc.sids$HB.spatial.est.rate , xlim=c(0,0.0062) , 
+      ylim=c(0,0.005) , cex=0.1+nc.sids$BIR79/20000 , pch=19 , col="red" ,
+      asp=1 , xlab="Raw Rates" , ylab="Hierarchical Spatial Model")
+abline( a=0 , b=1 )
+
+```
+

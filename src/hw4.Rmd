@@ -1,0 +1,143 @@
+---
+title: "Homework 4"
+author: "Peter Tran"
+output: flexdashboard::flex_dashboard
+---
+
+```{r, include = F, echo = F}
+library(rgdal)
+library(tigris)
+
+ga <- counties("Georgia")
+
+library(readxl)
+library(tidyverse)
+
+std <- read_excel("../data/ga_std.xlsx", skip = 2, n_max = 159) %>%
+  mutate(`...1` = toupper(`...1`)) %>%
+  mutate(`STD Cases` = replace(`STD Cases`, `...1` == "GLASCOCK", 20)) %>%
+  mutate(`STD Cases` = as.numeric(gsub(",", "", `STD Cases`)))
+pop <- read_csv("../data/georgia_population_22.csv")
+
+data <- ga %>%
+  mutate(NAME = toupper(NAME)) %>%
+  inner_join(std, by = c("NAME" = "...1")) %>%
+  inner_join(pop, by = c("NAME" = "County"))
+
+data$stdrate <- data$`STD Cases`/data$Pop
+
+library(nimble)
+library(spdep)
+library(tmap)
+
+v_i_code <- nimbleCode({
+  for (i in 1:N) {
+    y[i] ~ dpois(pop[i]*theta[i])
+    log(theta[i]) <- beta_0+v[i]
+    v[i] ~ dnorm(0, tau_v)
+  }
+  beta_0 ~ dnorm(-3, 1/10)
+  tau_v ~ dgamma(1, 1/10000)
+})
+
+v_i_data <- list(y = data$`STD Cases`)
+
+v_i_consts <- list(N = nrow(data), pop = data$Pop)
+
+v_i_inits <- list(beta_0 = 0, v = rep(0, nrow(data)), tau_v = 0.1)
+
+v_i_model <- nimbleModel(v_i_code, data = v_i_data, constants = v_i_consts,
+                         inits = v_i_inits)
+v_i_compile <- compileNimble(v_i_model)
+v_i_conf <- configureMCMC(v_i_compile, print = T, thin = 100, enableWAIC = T)
+v_i_conf$addMonitors(c("beta_0", "tau_v", "theta"))
+v_i_mcmc <- buildMCMC(v_i_conf)
+v_i_mcmc_compile <- compileNimble(v_i_mcmc, project = v_i_model)
+
+v_i_samples <- runMCMC(v_i_mcmc_compile, niter = 120000, nburnin = 20000,
+                       inits = v_i_inits, nchains = 1, samplesAsCodaMCMC = T, WAIC = T)
+data$v_i_rates <- apply(v_i_samples$samples[,3:ncol(v_i_samples$samples)], 2, mean)
+
+data_sp <- as(data, "Spatial")
+data_nb <- poly2nb(data_sp, queen = F)
+
+num <- map_int(data_nb, length)
+
+adj <- c()
+for (i in 1:nrow(data_sp))
+  adj <- c(adj, data_nb[[i]])
+
+s_i_code <- nimbleCode({
+  for (i in 1:N) {
+    y[i] ~ dpois(pop[i]*theta[i])
+    log(theta[i]) <- beta_0+s[i]
+  }
+  s[1:N] ~ dcar_normal(adj[1:L], weights[1:L], num[1:N], tau_s, zero_mean = 1)
+  beta_0 ~ dnorm(-3, 1/10)
+  tau_s ~ dgamma(1, 1/10000)
+})
+
+s_i_data <- list(y = data$`STD Cases`)
+
+s_i_consts <- list(N = nrow(data), pop = data$Pop, adj = adj, num = num, L = length(adj),
+                   weights = rep(1, length(adj)))
+
+s_i_inits <- list(beta_0 = 0, s = rep(0, nrow(data)), tau_s = 0.1)
+
+s_i_model <- nimbleModel(s_i_code, data = s_i_data, constants = s_i_consts,
+                         inits = s_i_inits)
+s_i_compile <- compileNimble(s_i_model)
+s_i_conf <- configureMCMC(s_i_compile, print = T, thin = 100, enableWAIC = T)
+s_i_conf$addMonitors(c("beta_0", "tau_s", "theta"))
+s_i_mcmc <- buildMCMC(s_i_conf)
+s_i_mcmc_compile <- compileNimble(s_i_mcmc, project = s_i_model)
+
+s_i_samples <- runMCMC(s_i_mcmc_compile, niter = 120000, nburnin = 20000,
+                       inits = s_i_inits, nchains = 1, samplesAsCodaMCMC = T, WAIC = T)
+data$s_i_rates <- apply(s_i_samples$samples[,3:ncol(s_i_samples$samples)], 2, mean)
+
+raw_plot <- tm_shape(data) + 
+  tm_polygons(col = "stdrate", title = "Raw STD rates")
+
+v_i_plot <- tm_shape(data) +
+  tm_polygons(col = "v_i_rates", breaks = seq(0, 0.020, 0.005), title = "v_i STD rates")
+
+s_i_plot <- tm_shape(data) +
+  tm_polygons(col = "s_i_rates", breaks = seq(0, 0.020, 0.005), title = "s_i STD rates")
+```
+
+Using your results from Homework 3, create a flexdashboard with four graphs
+
+Column {data-width=500}
+--------------------
+
+1. a choropleth map for the raw rates
+
+```{r}
+raw_plot
+```
+
+2. a choropleth map for the non-spatial model with just the $v_i$ terms
+
+```{r}
+v_i_plot
+```
+
+Column {data-width=500}
+--------------------
+
+3. a choropleth map for the spatial model with just the $s_i$ terms.
+
+```{r}
+s_i_plot
+```
+
+4. A 3D scatter plot using plotly for the three estimates above.
+
+```{r}
+library(plotly)
+
+plot_ly(data, x = ~stdrate, y = ~v_i_rates, z = ~s_i_rates, text = ~NAME) %>%
+  add_markers() %>%
+  layout(scene = list(xaxis = list(title = "Raw STD rates"), yaxis = list(title = "v_i STD rates"), zaxis = list(title = "s_i STD rates")))
+```

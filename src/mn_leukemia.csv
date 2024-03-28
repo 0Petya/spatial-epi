@@ -1,0 +1,523 @@
+fips,location,year,type,age,sex,count,population,rate,unstable,ci,lcl,ucl
+27001,Aitkin,2015-2019,Leukemia,All Ages,Female,7,39111,11.5 (UR),TRUE,(3.2 - 30.3),3.2,30.3
+27001,Aitkin,2005-2009,Leukemia,All Ages,Female,13,40080,27.2,FALSE,(12.4 - 51.5),12.4,51.5
+27001,Aitkin,2010-2014,Leukemia,All Ages,Male,13,40618,21,FALSE,(9.7 - 41.1),9.7,41.1
+27001,Aitkin,2010-2014,Leukemia,All Ages,Female,14,39519,20.4,FALSE,(9.5 - 40.2),9.5,40.2
+27001,Aitkin,2005-2009,Leukemia,All Ages,Male,10,41510,11.5 (UR),TRUE,(5.4 - 24.9),5.4,24.9
+27001,Aitkin,2015-2019,Leukemia,All Ages,Male,16,40060,23,FALSE,(11.2 - 43.7),11.2,43.7
+27003,Anoka,2005-2009,Leukemia,All Ages,Male,136,813608,24.4,FALSE,(20.1 - 29.3),20.1,29.3
+27003,Anoka,2010-2014,Leukemia,All Ages,Female,103,841055,12,FALSE,(9.7 - 14.6),9.7,14.6
+27003,Anoka,2015-2019,Leukemia,All Ages,Female,150,875211,14.9,FALSE,(12.6 - 17.6),12.6,17.6
+27003,Anoka,2015-2019,Leukemia,All Ages,Male,200,876056,22.3,FALSE,(19.2 - 25.8),19.2,25.8
+27003,Anoka,2005-2009,Leukemia,All Ages,Female,87,812641,12.2,FALSE,(9.7 - 15.0),9.7,15
+27003,Anoka,2010-2014,Leukemia,All Ages,Male,166,840322,22.5,FALSE,(19.0 - 26.4),19,26.4
+27005,Becker,2010-2014,Leukemia,All Ages,Male,21,82408,22.3,FALSE,(13.5 - 34.8),13.5,34.8
+27005,Becker,2015-2019,Leukemia,All Ages,Male,31,84836,26.1,FALSE,(17.5 - 37.9),17.5,37.9
+27005,Becker,2010-2014,Leukemia,All Ages,Female,17,82335,16.4,FALSE,(9.0 - 27.6),9,27.6
+27005,Becker,2005-2009,Leukemia,All Ages,Male,25,80150,27.7,FALSE,(17.7 - 41.5),17.7,41.5
+27005,Becker,2005-2009,Leukemia,All Ages,Female,16,80453,17.2,FALSE,(9.5 - 28.5),9.5,28.5
+27005,Becker,2015-2019,Leukemia,All Ages,Female,15,85221,12.3,FALSE,(6.6 - 21.3),6.6,21.3
+27007,Beltrami,2015-2019,Leukemia,All Ages,Female,16,116221,13,FALSE,(7.1 - 21.7),7.1,21.7
+27007,Beltrami,2015-2019,Leukemia,All Ages,Male,27,115792,21.7,FALSE,(14.1 - 32.0),14.1,32
+27007,Beltrami,2010-2014,Leukemia,All Ages,Female,12,113180,7.8,FALSE,(4.0 - 14.2),4,14.2
+27007,Beltrami,2010-2014,Leukemia,All Ages,Male,19,112714,16.4,FALSE,(9.8 - 26.0),9.8,26
+27007,Beltrami,2005-2009,Leukemia,All Ages,Male,15,108454,14.9,FALSE,(8.2 - 24.8),8.2,24.8
+27007,Beltrami,2005-2009,Leukemia,All Ages,Female,8,108634,7.0 (UR),TRUE,(3.0 - 14.0),3,14
+27009,Benton,2010-2014,Leukemia,All Ages,Male,22,97167,24.3,FALSE,(15.1 - 37.1),15.1,37.1
+27009,Benton,2015-2019,Leukemia,All Ages,Female,19,100159,17.4,FALSE,(10.3 - 27.7),10.3,27.7
+27009,Benton,2005-2009,Leukemia,All Ages,Female,7,94615,7.6 (UR),TRUE,(3.0 - 15.8),3,15.8
+27009,Benton,2015-2019,Leukemia,All Ages,Male,20,100484,20,FALSE,(12.0 - 31.2),12,31.2
+27009,Benton,2005-2009,Leukemia,All Ages,Male,22,95036,28.3,FALSE,(17.5 - 43.0),17.5,43
+27009,Benton,2010-2014,Leukemia,All Ages,Female,13,96809,12,FALSE,(6.2 - 21.1),6.2,21.1
+27011,Big Stone,2005-2009,Leukemia,All Ages,Male,5,13146,28.8 (UR),TRUE,(7.7 - 76.3),7.7,76.3
+27011,Big Stone,2015-2019,Leukemia,All Ages,Male,5,12429,20.7 (UR),TRUE,(6.5 - 60.1),6.5,60.1
+27011,Big Stone,2010-2014,Leukemia,All Ages,Male,3,12619,22.6 (UR),TRUE,(3.3 - 73.4),3.3,73.4
+27011,Big Stone,2010-2014,Leukemia,All Ages,Female,2,13150,13.3 (UR),TRUE,(1.4 - 54.4),1.4,54.4
+27011,Big Stone,2015-2019,Leukemia,All Ages,Female,1,12551,9.9 (UR),TRUE,(0.2 - 53.4),0.2,53.4
+27011,Big Stone,2005-2009,Leukemia,All Ages,Female,4,13653,10.7 (UR),TRUE,(2.8 - 43.0),2.8,43
+27013,Blue Earth,2010-2014,Leukemia,All Ages,Male,41,162863,28.7,FALSE,(20.4 - 39.1),20.4,39.1
+27013,Blue Earth,2005-2009,Leukemia,All Ages,Male,20,155479,15.3,FALSE,(9.3 - 23.6),9.3,23.6
+27013,Blue Earth,2015-2019,Leukemia,All Ages,Male,27,168209,16.5,FALSE,(10.7 - 24.4),10.7,24.4
+27013,Blue Earth,2015-2019,Leukemia,All Ages,Female,11,165766,4.8,FALSE,(2.3 - 9.1),2.3,9.1
+27013,Blue Earth,2005-2009,Leukemia,All Ages,Female,17,153938,11.1,FALSE,(6.3 - 18.1),6.3,18.1
+27013,Blue Earth,2010-2014,Leukemia,All Ages,Female,20,160593,11.8,FALSE,(7.0 - 18.7),7,18.7
+27015,Brown,2010-2014,Leukemia,All Ages,Male,20,63430,22.4,FALSE,(13.5 - 35.6),13.5,35.6
+27015,Brown,2010-2014,Leukemia,All Ages,Female,12,64022,13.2,FALSE,(6.4 - 24.7),6.4,24.7
+27015,Brown,2015-2019,Leukemia,All Ages,Male,30,62773,33.6,FALSE,(22.3 - 49.2),22.3,49.2
+27015,Brown,2005-2009,Leukemia,All Ages,Female,14,65685,12.9,FALSE,(6.4 - 23.8),6.4,23.8
+27015,Brown,2015-2019,Leukemia,All Ages,Female,9,63044,9.1 (UR),TRUE,(3.7 - 19.4),3.7,19.4
+27015,Brown,2005-2009,Leukemia,All Ages,Male,17,64839,21.5,FALSE,(12.4 - 35.1),12.4,35.1
+27017,Carlton,2010-2014,Leukemia,All Ages,Female,11,84441,10.1,FALSE,(4.9 - 18.9),4.9,18.9
+27017,Carlton,2010-2014,Leukemia,All Ages,Male,16,92332,17,FALSE,(9.6 - 27.9),9.6,27.9
+27017,Carlton,2005-2009,Leukemia,All Ages,Female,11,83687,11.4,FALSE,(5.6 - 20.9),5.6,20.9
+27017,Carlton,2015-2019,Leukemia,All Ages,Male,18,93168,15.7,FALSE,(9.1 - 25.5),9.1,25.5
+27017,Carlton,2005-2009,Leukemia,All Ages,Male,19,90069,19.3,FALSE,(11.5 - 30.5),11.5,30.5
+27017,Carlton,2015-2019,Leukemia,All Ages,Female,17,84998,15,FALSE,(8.6 - 24.6),8.6,24.6
+27019,Carver,2005-2009,Leukemia,All Ages,Male,30,216860,20.5,FALSE,(13.5 - 29.7),13.5,29.7
+27019,Carver,2005-2009,Leukemia,All Ages,Female,27,218379,13.8,FALSE,(9.0 - 20.2),9,20.2
+27019,Carver,2015-2019,Leukemia,All Ages,Male,46,253112,19.9,FALSE,(14.4 - 26.9),14.4,26.9
+27019,Carver,2010-2014,Leukemia,All Ages,Female,28,237036,11.5,FALSE,(7.6 - 16.9),7.6,16.9
+27019,Carver,2015-2019,Leukemia,All Ages,Female,37,256632,14.4,FALSE,(10.0 - 20.0),10,20
+27019,Carver,2010-2014,Leukemia,All Ages,Male,45,234011,23.3,FALSE,(16.6 - 31.6),16.6,31.6
+27021,Cass,2015-2019,Leukemia,All Ages,Female,10,71616,7.8 (UR),TRUE,(3.6 - 16.2),3.6,16.2
+27021,Cass,2015-2019,Leukemia,All Ages,Male,38,74726,27.3,FALSE,(19.1 - 38.9),19.1,38.9
+27021,Cass,2005-2009,Leukemia,All Ages,Female,8,70240,8.8 (UR),TRUE,(3.6 - 18.5),3.6,18.5
+27021,Cass,2010-2014,Leukemia,All Ages,Female,14,69834,14.3,FALSE,(7.3 - 25.9),7.3,25.9
+27021,Cass,2005-2009,Leukemia,All Ages,Male,25,73094,23.3,FALSE,(14.8 - 35.5),14.8,35.5
+27021,Cass,2010-2014,Leukemia,All Ages,Male,27,72652,26.4,FALSE,(16.8 - 40.0),16.8,40
+27023,Chippewa,2005-2009,Leukemia,All Ages,Male,8,30561,18.4 (UR),TRUE,(7.9 - 38.1),7.9,38.1
+27023,Chippewa,2015-2019,Leukemia,All Ages,Male,5,29727,11.8 (UR),TRUE,(3.8 - 29.9),3.8,29.9
+27023,Chippewa,2015-2019,Leukemia,All Ages,Female,4,30038,6.6 (UR),TRUE,(1.7 - 21.6),1.7,21.6
+27023,Chippewa,2005-2009,Leukemia,All Ages,Female,12,31682,27.3,FALSE,(13.5 - 50.4),13.5,50.4
+27023,Chippewa,2010-2014,Leukemia,All Ages,Female,8,30951,15.5 (UR),TRUE,(6.4 - 33.9),6.4,33.9
+27023,Chippewa,2010-2014,Leukemia,All Ages,Male,8,30051,19.6 (UR),TRUE,(8.4 - 40.5),8.4,40.5
+27025,Chisago,2015-2019,Leukemia,All Ages,Female,23,133697,14.6,FALSE,(9.2 - 22.3),9.2,22.3
+27025,Chisago,2015-2019,Leukemia,All Ages,Male,44,142878,30.4,FALSE,(21.9 - 41.2),21.9,41.2
+27025,Chisago,2005-2009,Leukemia,All Ages,Female,11,126120,8.7,FALSE,(4.3 - 15.7),4.3,15.7
+27025,Chisago,2010-2014,Leukemia,All Ages,Female,18,130038,12.9,FALSE,(7.5 - 20.7),7.5,20.7
+27025,Chisago,2005-2009,Leukemia,All Ages,Male,18,134457,16,FALSE,(9.3 - 25.5),9.3,25.5
+27025,Chisago,2010-2014,Leukemia,All Ages,Male,13,138549,10.2,FALSE,(5.3 - 17.7),5.3,17.7
+27027,Clay,2010-2014,Leukemia,All Ages,Male,28,148325,20.7,FALSE,(13.6 - 30.1),13.6,30.1
+27027,Clay,2015-2019,Leukemia,All Ages,Male,34,156896,23.9,FALSE,(16.5 - 33.5),16.5,33.5
+27027,Clay,2005-2009,Leukemia,All Ages,Male,34,137840,28.2,FALSE,(19.5 - 39.5),19.5,39.5
+27027,Clay,2005-2009,Leukemia,All Ages,Female,23,142566,16,FALSE,(10.1 - 24.2),10.1,24.2
+27027,Clay,2010-2014,Leukemia,All Ages,Female,39,152698,23.1,FALSE,(16.3 - 32.0),16.3,32
+27027,Clay,2015-2019,Leukemia,All Ages,Female,28,160333,14,FALSE,(9.2 - 20.7),9.2,20.7
+27029,Clearwater,2005-2009,Leukemia,All Ages,Male,5,21579,17.6 (UR),TRUE,(5.7 - 43.7),5.7,43.7
+27029,Clearwater,2010-2014,Leukemia,All Ages,Female,5,21637,20.8 (UR),TRUE,(5.8 - 52.1),5.8,52.1
+27029,Clearwater,2005-2009,Leukemia,All Ages,Female,2,21157,10.4 (UR),TRUE,(1.0 - 37.9),1,37.9
+27029,Clearwater,2015-2019,Leukemia,All Ages,Male,6,22405,18.8 (UR),TRUE,(6.9 - 43.9),6.9,43.9
+27029,Clearwater,2010-2014,Leukemia,All Ages,Male,3,22040,8.9 (UR),TRUE,(1.8 - 30.2),1.8,30.2
+27029,Clearwater,2015-2019,Leukemia,All Ages,Female,3,21701,12.2 (UR),TRUE,(2.2 - 38.3),2.2,38.3
+27031,Cook,2005-2009,Leukemia,All Ages,Male,5,12913,23.9 (UR),TRUE,(7.1 - 66.4),7.1,66.4
+27031,Cook,2010-2014,Leukemia,All Ages,Male,6,12956,30.3 (UR),TRUE,(10.6 - 75.7),10.6,75.7
+27031,Cook,2015-2019,Leukemia,All Ages,Female,0,13456,null (UR),TRUE, ,null,null
+27031,Cook,2015-2019,Leukemia,All Ages,Male,6,13426,18.5 (UR),TRUE,(6.7 - 54.8),6.7,54.8
+27031,Cook,2005-2009,Leukemia,All Ages,Female,1,13130,6.6 (UR),TRUE,(0.2 - 43.9),0.2,43.9
+27031,Cook,2010-2014,Leukemia,All Ages,Female,3,13024,14.2 (UR),TRUE,(2.8 - 54.2),2.8,54.2
+27033,Cottonwood,2010-2014,Leukemia,All Ages,Female,8,29366,16.6 (UR),TRUE,(6.0 - 38.0),6,38
+27033,Cottonwood,2015-2019,Leukemia,All Ages,Male,3,28150,6.4 (UR),TRUE,(1.3 - 22.7),1.3,22.7
+27033,Cottonwood,2015-2019,Leukemia,All Ages,Female,10,28343,19.3 (UR),TRUE,(8.6 - 40.2),8.6,40.2
+27033,Cottonwood,2005-2009,Leukemia,All Ages,Female,5,29933,5.8 (UR),TRUE,(1.5 - 20.5),1.5,20.5
+27033,Cottonwood,2010-2014,Leukemia,All Ages,Male,10,28697,20.2 (UR),TRUE,(9.7 - 40.1),9.7,40.1
+27033,Cottonwood,2005-2009,Leukemia,All Ages,Male,9,28904,21.3 (UR),TRUE,(9.5 - 42.9),9.5,42.9
+27035,Crow Wing,2005-2009,Leukemia,All Ages,Female,23,154008,11.2,FALSE,(7.0 - 17.3),7,17.3
+27035,Crow Wing,2005-2009,Leukemia,All Ages,Male,36,152221,20,FALSE,(13.9 - 28.0),13.9,28
+27035,Crow Wing,2015-2019,Leukemia,All Ages,Female,30,161303,11.6,FALSE,(7.5 - 17.5),7.5,17.5
+27035,Crow Wing,2010-2014,Leukemia,All Ages,Female,28,157631,11.9,FALSE,(7.8 - 17.6),7.8,17.6
+27035,Crow Wing,2010-2014,Leukemia,All Ages,Male,42,156567,19,FALSE,(13.6 - 26.0),13.6,26
+27035,Crow Wing,2015-2019,Leukemia,All Ages,Male,53,159782,22.4,FALSE,(16.5 - 29.9),16.5,29.9
+27037,Dakota,2010-2014,Leukemia,All Ages,Male,198,994972,21.7,FALSE,(18.6 - 25.0),18.6,25
+27037,Dakota,2010-2014,Leukemia,All Ages,Female,147,1030243,14.2,FALSE,(12.0 - 16.8),12,16.8
+27037,Dakota,2015-2019,Leukemia,All Ages,Male,217,1038685,21.5,FALSE,(18.7 - 24.7),18.7,24.7
+27037,Dakota,2005-2009,Leukemia,All Ages,Female,122,990593,13.1,FALSE,(10.8 - 15.7),10.8,15.7
+27037,Dakota,2015-2019,Leukemia,All Ages,Female,153,1068580,12.8,FALSE,(10.8 - 15.1),10.8,15.1
+27037,Dakota,2005-2009,Leukemia,All Ages,Male,169,959037,23.2,FALSE,(19.6 - 27.1),19.6,27.1
+27039,Dodge,2010-2014,Leukemia,All Ages,Male,14,50592,28.5,FALSE,(15.5 - 48.0),15.5,48
+27039,Dodge,2010-2014,Leukemia,All Ages,Female,10,50747,17.7 (UR),TRUE,(8.4 - 33.2),8.4,33.2
+27039,Dodge,2015-2019,Leukemia,All Ages,Male,12,51736,20.5,FALSE,(10.5 - 36.6),10.5,36.6
+27039,Dodge,2015-2019,Leukemia,All Ages,Female,7,51611,11.7 (UR),TRUE,(4.6 - 24.9),4.6,24.9
+27039,Dodge,2005-2009,Leukemia,All Ages,Male,8,49197,17.5 (UR),TRUE,(7.5 - 34.6),7.5,34.6
+27039,Dodge,2005-2009,Leukemia,All Ages,Female,7,49205,12.5 (UR),TRUE,(5.0 - 26.5),5,26.5
+27041,Douglas,2015-2019,Leukemia,All Ages,Male,36,93790,27.6,FALSE,(18.9 - 39.2),18.9,39.2
+27041,Douglas,2005-2009,Leukemia,All Ages,Female,18,89266,12.7,FALSE,(7.4 - 20.9),7.4,20.9
+27041,Douglas,2010-2014,Leukemia,All Ages,Male,33,90880,26.7,FALSE,(18.2 - 38.2),18.2,38.2
+27041,Douglas,2010-2014,Leukemia,All Ages,Female,23,90507,19,FALSE,(11.5 - 29.8),11.5,29.8
+27041,Douglas,2015-2019,Leukemia,All Ages,Female,17,93775,12,FALSE,(6.5 - 20.7),6.5,20.7
+27041,Douglas,2005-2009,Leukemia,All Ages,Male,22,89403,21.6,FALSE,(13.3 - 33.2),13.3,33.2
+27043,Faribault,2005-2009,Leukemia,All Ages,Male,11,37129,24.4,FALSE,(11.4 - 46.0),11.4,46
+27043,Faribault,2005-2009,Leukemia,All Ages,Female,3,37703,5.2 (UR),TRUE,(1.1 - 18.1),1.1,18.1
+27043,Faribault,2015-2019,Leukemia,All Ages,Male,10,34433,22.9 (UR),TRUE,(10.4 - 44.5),10.4,44.5
+27043,Faribault,2015-2019,Leukemia,All Ages,Female,8,34572,12.9 (UR),TRUE,(5.5 - 28.6),5.5,28.6
+27043,Faribault,2010-2014,Leukemia,All Ages,Female,9,35896,13.5 (UR),TRUE,(5.3 - 30.3),5.3,30.3
+27043,Faribault,2010-2014,Leukemia,All Ages,Male,19,35425,35,FALSE,(20.9 - 56.5),20.9,56.5
+27045,Fillmore,2005-2009,Leukemia,All Ages,Female,9,52906,12.5 (UR),TRUE,(5.3 - 25.5),5.3,25.5
+27045,Fillmore,2010-2014,Leukemia,All Ages,Female,16,52034,21.1,FALSE,(10.9 - 37.3),10.9,37.3
+27045,Fillmore,2010-2014,Leukemia,All Ages,Male,18,52015,28.7,FALSE,(16.9 - 46.2),16.9,46.2
+27045,Fillmore,2015-2019,Leukemia,All Ages,Male,22,52591,29.8,FALSE,(18.4 - 46.3),18.4,46.3
+27045,Fillmore,2015-2019,Leukemia,All Ages,Female,10,52155,14.4 (UR),TRUE,(5.9 - 29.3),5.9,29.3
+27045,Fillmore,2005-2009,Leukemia,All Ages,Male,14,52279,20.1,FALSE,(11.0 - 34.5),11,34.5
+27047,Freeborn,2015-2019,Leukemia,All Ages,Male,12,76063,11.2,FALSE,(5.6 - 20.5),5.6,20.5
+27047,Freeborn,2015-2019,Leukemia,All Ages,Female,8,76251,8.2 (UR),TRUE,(3.3 - 17.3),3.3,17.3
+27047,Freeborn,2010-2014,Leukemia,All Ages,Female,17,78023,14.1,FALSE,(7.7 - 24.1),7.7,24.1
+27047,Freeborn,2005-2009,Leukemia,All Ages,Male,26,77749,26.3,FALSE,(17.1 - 39.2),17.1,39.2
+27047,Freeborn,2005-2009,Leukemia,All Ages,Female,5,79671,4.0 (UR),TRUE,(1.1 - 10.8),1.1,10.8
+27047,Freeborn,2010-2014,Leukemia,All Ages,Male,22,76941,21,FALSE,(13.0 - 32.6),13,32.6
+27049,Goodhue,2010-2014,Leukemia,All Ages,Male,28,114666,21.4,FALSE,(14.1 - 31.3),14.1,31.3
+27049,Goodhue,2010-2014,Leukemia,All Ages,Female,26,115905,16.5,FALSE,(10.2 - 25.3),10.2,25.3
+27049,Goodhue,2005-2009,Leukemia,All Ages,Female,9,115328,6.0 (UR),TRUE,(2.7 - 11.9),2.7,11.9
+27049,Goodhue,2015-2019,Leukemia,All Ages,Female,14,116286,8.1,FALSE,(4.2 - 14.5),4.2,14.5
+27049,Goodhue,2005-2009,Leukemia,All Ages,Male,25,113429,19.7,FALSE,(12.7 - 29.3),12.7,29.3
+27049,Goodhue,2015-2019,Leukemia,All Ages,Male,26,114946,17.9,FALSE,(11.5 - 26.8),11.5,26.8
+27051,Grant,2015-2019,Leukemia,All Ages,Female,6,14772,21.8 (UR),TRUE,(7.8 - 56.2),7.8,56.2
+27051,Grant,2010-2014,Leukemia,All Ages,Male,7,14775,31.8 (UR),TRUE,(12.6 - 70.7),12.6,70.7
+27051,Grant,2010-2014,Leukemia,All Ages,Female,2,15027,8.1 (UR),TRUE,(1.0 - 38.1),1,38.1
+27051,Grant,2015-2019,Leukemia,All Ages,Male,6,14902,26.5 (UR),TRUE,(9.1 - 64.3),9.1,64.3
+27051,Grant,2005-2009,Leukemia,All Ages,Male,5,15137,19.4 (UR),TRUE,(6.2 - 52.0),6.2,52
+27051,Grant,2005-2009,Leukemia,All Ages,Female,3,15428,20.6 (UR),TRUE,(4.2 - 60.4),4.2,60.4
+27053,Hennepin,2015-2019,Leukemia,All Ages,Female,403,3149013,11.4,FALSE,(10.3 - 12.6),10.3,12.6
+27053,Hennepin,2005-2009,Leukemia,All Ages,Male,518,2774875,21.5,FALSE,(19.6 - 23.5),19.6,23.5
+27053,Hennepin,2010-2014,Leukemia,All Ages,Male,603,2911323,23.2,FALSE,(21.3 - 25.1),21.3,25.1
+27053,Hennepin,2015-2019,Leukemia,All Ages,Male,648,3080173,21.7,FALSE,(20.0 - 23.5),20,23.5
+27053,Hennepin,2005-2009,Leukemia,All Ages,Female,387,2870126,12.7,FALSE,(11.4 - 14.1),11.4,14.1
+27053,Hennepin,2010-2014,Leukemia,All Ages,Female,410,3005561,12.2,FALSE,(11.0 - 13.5),11,13.5
+27055,Houston,2005-2009,Leukemia,All Ages,Male,12,47941,20.8,FALSE,(10.7 - 37.2),10.7,37.2
+27055,Houston,2015-2019,Leukemia,All Ages,Male,18,46672,27.9,FALSE,(16.1 - 45.9),16.1,45.9
+27055,Houston,2005-2009,Leukemia,All Ages,Female,3,48740,5.4 (UR),TRUE,(1.0 - 16.9),1,16.9
+27055,Houston,2010-2014,Leukemia,All Ages,Male,9,46817,15.3 (UR),TRUE,(6.8 - 30.4),6.8,30.4
+27055,Houston,2010-2014,Leukemia,All Ages,Female,9,47322,16.2 (UR),TRUE,(7.0 - 32.3),7,32.3
+27055,Houston,2015-2019,Leukemia,All Ages,Female,2,46566,3.7 (UR),TRUE,(0.3 - 15.0),0.3,15
+27057,Hubbard,2010-2014,Leukemia,All Ages,Female,4,51043,5.0 (UR),TRUE,(1.3 - 15.1),1.3,15.1
+27057,Hubbard,2015-2019,Leukemia,All Ages,Female,12,51909,12.8,FALSE,(6.3 - 25.0),6.3,25
+27057,Hubbard,2010-2014,Leukemia,All Ages,Male,16,51685,22.2,FALSE,(12.2 - 38.1),12.2,38.1
+27057,Hubbard,2015-2019,Leukemia,All Ages,Male,15,53185,20.8,FALSE,(10.5 - 37.2),10.5,37.2
+27057,Hubbard,2005-2009,Leukemia,All Ages,Male,11,50406,17,FALSE,(8.1 - 32.1),8.1,32.1
+27057,Hubbard,2005-2009,Leukemia,All Ages,Female,6,49887,7.6 (UR),TRUE,(2.7 - 18.4),2.7,18.4
+27059,Isanti,2015-2019,Leukemia,All Ages,Male,24,99709,20.7,FALSE,(13.0 - 31.4),13,31.4
+27059,Isanti,2015-2019,Leukemia,All Ages,Female,17,97439,14,FALSE,(8.0 - 23.1),8,23.1
+27059,Isanti,2005-2009,Leukemia,All Ages,Female,9,92685,9.0 (UR),TRUE,(4.0 - 17.3),4,17.3
+27059,Isanti,2010-2014,Leukemia,All Ages,Female,14,94515,13.6,FALSE,(7.3 - 23.1),7.3,23.1
+27059,Isanti,2010-2014,Leukemia,All Ages,Male,33,96028,33.1,FALSE,(22.5 - 47.0),22.5,47
+27059,Isanti,2005-2009,Leukemia,All Ages,Male,18,94269,22.1,FALSE,(12.9 - 35.2),12.9,35.2
+27061,Itasca,2015-2019,Leukemia,All Ages,Male,37,114063,21.9,FALSE,(15.2 - 31.0),15.2,31
+27061,Itasca,2010-2014,Leukemia,All Ages,Female,18,112008,10.8,FALSE,(6.1 - 18.2),6.1,18.2
+27061,Itasca,2005-2009,Leukemia,All Ages,Male,33,112569,22.4,FALSE,(15.2 - 32.0),15.2,32
+27061,Itasca,2015-2019,Leukemia,All Ages,Female,21,111641,11,FALSE,(6.6 - 17.8),6.6,17.8
+27061,Itasca,2005-2009,Leukemia,All Ages,Female,13,110901,7.8,FALSE,(4.1 - 14.0),4.1,14
+27061,Itasca,2010-2014,Leukemia,All Ages,Male,43,113949,27.3,FALSE,(19.5 - 37.5),19.5,37.5
+27063,Jackson,2005-2009,Leukemia,All Ages,Female,4,25851,9.1 (UR),TRUE,(2.2 - 28.1),2.2,28.1
+27063,Jackson,2015-2019,Leukemia,All Ages,Female,7,24348,15.7 (UR),TRUE,(6.0 - 37.4),6,37.4
+27063,Jackson,2005-2009,Leukemia,All Ages,Male,8,26490,28.8 (UR),TRUE,(12.1 - 57.6),12.1,57.6
+27063,Jackson,2010-2014,Leukemia,All Ages,Female,6,25331,17.1 (UR),TRUE,(5.9 - 40.8),5.9,40.8
+27063,Jackson,2015-2019,Leukemia,All Ages,Male,4,25422,14.3 (UR),TRUE,(3.4 - 39.1),3.4,39.1
+27063,Jackson,2010-2014,Leukemia,All Ages,Male,9,25996,24.4 (UR),TRUE,(11.1 - 48.8),11.1,48.8
+27065,Kanabec,2010-2014,Leukemia,All Ages,Female,9,39632,15.2 (UR),TRUE,(6.9 - 30.7),6.9,30.7
+27065,Kanabec,2010-2014,Leukemia,All Ages,Male,10,40759,19.6 (UR),TRUE,(9.1 - 37.7),9.1,37.7
+27065,Kanabec,2005-2009,Leukemia,All Ages,Male,10,41387,22.5 (UR),TRUE,(10.5 - 42.5),10.5,42.5
+27065,Kanabec,2015-2019,Leukemia,All Ages,Female,4,39803,5.8 (UR),TRUE,(1.6 - 17.7),1.6,17.7
+27065,Kanabec,2015-2019,Leukemia,All Ages,Male,17,40640,26.4,FALSE,(14.7 - 45.1),14.7,45.1
+27065,Kanabec,2005-2009,Leukemia,All Ages,Female,3,40556,6.3 (UR),TRUE,(1.2 - 19.4),1.2,19.4
+27067,Kandiyohi,2015-2019,Leukemia,All Ages,Female,11,106537,8.9,FALSE,(4.3 - 16.3),4.3,16.3
+27067,Kandiyohi,2010-2014,Leukemia,All Ages,Female,14,105833,9.3,FALSE,(4.9 - 16.2),4.9,16.2
+27067,Kandiyohi,2005-2009,Leukemia,All Ages,Female,12,104890,8.3,FALSE,(4.1 - 15.1),4.1,15.1
+27067,Kandiyohi,2015-2019,Leukemia,All Ages,Male,28,107670,20.6,FALSE,(13.6 - 30.2),13.6,30.2
+27067,Kandiyohi,2010-2014,Leukemia,All Ages,Male,36,105907,31.2,FALSE,(21.7 - 43.7),21.7,43.7
+27067,Kandiyohi,2005-2009,Leukemia,All Ages,Male,25,103671,21,FALSE,(13.6 - 31.3),13.6,31.3
+27069,Kittson,2015-2019,Leukemia,All Ages,Male,0,10809,null (UR),TRUE, ,null,null
+27069,Kittson,2010-2014,Leukemia,All Ages,Female,4,11177,24.0 (UR),TRUE,(4.5 - 77.2),4.5,77.2
+27069,Kittson,2010-2014,Leukemia,All Ages,Male,4,11366,41.1 (UR),TRUE,(8.5 - 111.8),8.5,111.8
+27069,Kittson,2005-2009,Leukemia,All Ages,Male,1,11762,4.4 (UR),TRUE,(0.1 - 40.6),0.1,40.6
+27069,Kittson,2015-2019,Leukemia,All Ages,Female,4,10747,20.5 (UR),TRUE,(5.5 - 65.9),5.5,65.9
+27069,Kittson,2005-2009,Leukemia,All Ages,Female,2,11645,9.6 (UR),TRUE,(1.0 - 50.7),1,50.7
+27071,Koochiching,2010-2014,Leukemia,All Ages,Male,13,32620,28.9,FALSE,(14.7 - 52.7),14.7,52.7
+27071,Koochiching,2005-2009,Leukemia,All Ages,Male,15,33772,38.3,FALSE,(20.5 - 65.7),20.5,65.7
+27071,Koochiching,2015-2019,Leukemia,All Ages,Female,5,31279,8.2 (UR),TRUE,(2.6 - 24.3),2.6,24.3
+27071,Koochiching,2010-2014,Leukemia,All Ages,Female,2,33028,3.2 (UR),TRUE,(0.4 - 16.7),0.4,16.7
+27071,Koochiching,2015-2019,Leukemia,All Ages,Male,10,31294,18.5 (UR),TRUE,(8.7 - 37.9),8.7,37.9
+27071,Koochiching,2005-2009,Leukemia,All Ages,Female,7,34069,12.1 (UR),TRUE,(4.4 - 28.7),4.4,28.7
+27073,Lac qui Parle,2010-2014,Leukemia,All Ages,Male,3,17782,10.0 (UR),TRUE,(2.0 - 36.8),2,36.8
+27073,Lac qui Parle,2005-2009,Leukemia,All Ages,Male,3,18497,13.9 (UR),TRUE,(2.5 - 44.8),2.5,44.8
+27073,Lac qui Parle,2015-2019,Leukemia,All Ages,Male,3,16882,12.6 (UR),TRUE,(2.4 - 43.5),2.4,43.5
+27073,Lac qui Parle,2015-2019,Leukemia,All Ages,Female,3,16711,15.4 (UR),TRUE,(2.3 - 52.2),2.3,52.2
+27073,Lac qui Parle,2005-2009,Leukemia,All Ages,Female,7,18555,16.6 (UR),TRUE,(5.9 - 45.2),5.9,45.2
+27073,Lac qui Parle,2010-2014,Leukemia,All Ages,Female,2,17711,5.6 (UR),TRUE,(0.4 - 32.8),0.4,32.8
+27075,Lake,2015-2019,Leukemia,All Ages,Male,16,27037,29.8,FALSE,(17.0 - 52.7),17,52.7
+27075,Lake,2015-2019,Leukemia,All Ages,Female,5,25762,16.5 (UR),TRUE,(4.1 - 44.0),4.1,44
+27075,Lake,2005-2009,Leukemia,All Ages,Male,3,27600,6.8 (UR),TRUE,(1.4 - 24.0),1.4,24
+27075,Lake,2010-2014,Leukemia,All Ages,Male,8,27224,18.8 (UR),TRUE,(7.7 - 41.3),7.7,41.3
+27075,Lake,2005-2009,Leukemia,All Ages,Female,3,27058,8.7 (UR),TRUE,(1.6 - 28.7),1.6,28.7
+27075,Lake,2010-2014,Leukemia,All Ages,Female,2,26509,4.1 (UR),TRUE,(0.4 - 21.2),0.4,21.2
+27077,Lake of the Woods,2010-2014,Leukemia,All Ages,Male,7,10119,56.3 (UR),TRUE,(20.3 - 127.8),20.3,127.8
+27077,Lake of the Woods,2015-2019,Leukemia,All Ages,Female,3,9041,18.0 (UR),TRUE,(3.5 - 71.5),3.5,71.5
+27077,Lake of the Woods,2010-2014,Leukemia,All Ages,Female,1,9673,5.5 (UR),TRUE,(0.1 - 52.2),0.1,52.2
+27077,Lake of the Woods,2005-2009,Leukemia,All Ages,Female,0,10336,null (UR),TRUE, ,null,null
+27077,Lake of the Woods,2005-2009,Leukemia,All Ages,Male,1,10735,6.4 (UR),TRUE,(0.2 - 49.6),0.2,49.6
+27077,Lake of the Woods,2015-2019,Leukemia,All Ages,Male,3,9812,18.9 (UR),TRUE,(3.8 - 70.0),3.8,70
+27079,Le Sueur,2010-2014,Leukemia,All Ages,Female,9,68757,9.2 (UR),TRUE,(4.1 - 18.3),4.1,18.3
+27079,Le Sueur,2015-2019,Leukemia,All Ages,Female,10,70041,11.0 (UR),TRUE,(5.1 - 21.0),5.1,21
+27079,Le Sueur,2015-2019,Leukemia,All Ages,Male,17,71171,20.1,FALSE,(11.4 - 33.1),11.4,33.1
+27079,Le Sueur,2005-2009,Leukemia,All Ages,Female,12,68563,13.7,FALSE,(7.0 - 24.7),7,24.7
+27079,Le Sueur,2005-2009,Leukemia,All Ages,Male,21,69349,29.6,FALSE,(18.2 - 45.5),18.2,45.5
+27079,Le Sueur,2010-2014,Leukemia,All Ages,Male,19,69936,26,FALSE,(15.4 - 41.2),15.4,41.2
+27081,Lincoln,2005-2009,Leukemia,All Ages,Male,5,14848,24.4 (UR),TRUE,(7.7 - 62.0),7.7,62
+27081,Lincoln,2005-2009,Leukemia,All Ages,Female,2,15007,13.1 (UR),TRUE,(1.2 - 50.7),1.2,50.7
+27081,Lincoln,2015-2019,Leukemia,All Ages,Female,3,14039,8.4 (UR),TRUE,(1.2 - 39.8),1.2,39.8
+27081,Lincoln,2015-2019,Leukemia,All Ages,Male,7,14346,32.9 (UR),TRUE,(12.1 - 75.2),12.1,75.2
+27081,Lincoln,2010-2014,Leukemia,All Ages,Male,3,14519,11.0 (UR),TRUE,(2.2 - 41.4),2.2,41.4
+27081,Lincoln,2010-2014,Leukemia,All Ages,Female,2,14448,5.5 (UR),TRUE,(0.5 - 35.3),0.5,35.3
+27083,Lyon,2015-2019,Leukemia,All Ages,Male,10,64210,17.3 (UR),TRUE,(8.2 - 31.8),8.2,31.8
+27083,Lyon,2010-2014,Leukemia,All Ages,Male,9,64213,15.2 (UR),TRUE,(6.8 - 28.9),6.8,28.9
+27083,Lyon,2005-2009,Leukemia,All Ages,Male,9,63014,14.7 (UR),TRUE,(6.6 - 28.0),6.6,28
+27083,Lyon,2005-2009,Leukemia,All Ages,Female,10,64328,11.7 (UR),TRUE,(5.4 - 22.7),5.4,22.7
+27083,Lyon,2015-2019,Leukemia,All Ages,Female,15,64573,18.1,FALSE,(9.9 - 30.7),9.9,30.7
+27083,Lyon,2010-2014,Leukemia,All Ages,Female,11,64597,13.2,FALSE,(6.3 - 24.8),6.3,24.8
+27085,McLeod,2005-2009,Leukemia,All Ages,Male,14,91655,15.3,FALSE,(8.3 - 25.8),8.3,25.8
+27085,McLeod,2015-2019,Leukemia,All Ages,Male,24,89491,21.5,FALSE,(13.7 - 32.5),13.7,32.5
+27085,McLeod,2010-2014,Leukemia,All Ages,Female,16,90623,14.1,FALSE,(7.7 - 23.7),7.7,23.7
+27085,McLeod,2010-2014,Leukemia,All Ages,Male,28,89917,27.7,FALSE,(18.3 - 40.4),18.3,40.4
+27085,McLeod,2015-2019,Leukemia,All Ages,Female,17,89668,13.9,FALSE,(7.9 - 23.2),7.9,23.2
+27085,McLeod,2005-2009,Leukemia,All Ages,Female,15,91884,13.2,FALSE,(7.3 - 22.2),7.3,22.2
+27087,Mahnomen,2015-2019,Leukemia,All Ages,Male,1,13850,6.1 (UR),TRUE,(0.2 - 38.6),0.2,38.6
+27087,Mahnomen,2005-2009,Leukemia,All Ages,Male,4,13583,26.7 (UR),TRUE,(7.0 - 71.1),7,71.1
+27087,Mahnomen,2010-2014,Leukemia,All Ages,Male,4,13791,26.2 (UR),TRUE,(7.1 - 69.3),7.1,69.3
+27087,Mahnomen,2015-2019,Leukemia,All Ages,Female,4,13657,21.3 (UR),TRUE,(5.8 - 59.7),5.8,59.7
+27087,Mahnomen,2005-2009,Leukemia,All Ages,Female,1,13072,5.1 (UR),TRUE,(0.1 - 36.8),0.1,36.8
+27087,Mahnomen,2010-2014,Leukemia,All Ages,Female,1,13594,8.1 (UR),TRUE,(0.2 - 43.6),0.2,43.6
+27089,Marshall,2015-2019,Leukemia,All Ages,Male,6,23672,17.7 (UR),TRUE,(6.2 - 42.0),6.2,42
+27089,Marshall,2010-2014,Leukemia,All Ages,Female,6,23286,14.4 (UR),TRUE,(5.1 - 36.4),5.1,36.4
+27089,Marshall,2005-2009,Leukemia,All Ages,Male,11,24533,33.4,FALSE,(16.6 - 61.8),16.6,61.8
+27089,Marshall,2015-2019,Leukemia,All Ages,Female,4,23186,12.6 (UR),TRUE,(3.4 - 35.7),3.4,35.7
+27089,Marshall,2005-2009,Leukemia,All Ages,Female,2,23838,3.6 (UR),TRUE,(0.4 - 20.6),0.4,20.6
+27089,Marshall,2010-2014,Leukemia,All Ages,Male,9,23935,27.9 (UR),TRUE,(12.6 - 55.3),12.6,55.3
+27091,Martin,2010-2014,Leukemia,All Ages,Male,13,50499,16.1,FALSE,(8.5 - 29.1),8.5,29.1
+27091,Martin,2005-2009,Leukemia,All Ages,Female,11,53283,12.7,FALSE,(6.0 - 24.8),6,24.8
+27091,Martin,2015-2019,Leukemia,All Ages,Male,12,49161,19.4,FALSE,(9.4 - 35.8),9.4,35.8
+27091,Martin,2015-2019,Leukemia,All Ages,Female,4,50100,6.9 (UR),TRUE,(1.7 - 19.2),1.7,19.2
+27091,Martin,2010-2014,Leukemia,All Ages,Female,10,52055,12.6 (UR),TRUE,(5.6 - 25.4),5.6,25.4
+27091,Martin,2005-2009,Leukemia,All Ages,Male,17,51263,24.8,FALSE,(14.3 - 40.8),14.3,40.8
+27093,Meeker,2010-2014,Leukemia,All Ages,Female,10,56905,15.1 (UR),TRUE,(6.9 - 28.8),6.9,28.8
+27093,Meeker,2010-2014,Leukemia,All Ages,Male,10,58866,12.5 (UR),TRUE,(5.9 - 23.9),5.9,23.9
+27093,Meeker,2005-2009,Leukemia,All Ages,Female,7,57483,8.5 (UR),TRUE,(3.3 - 18.8),3.3,18.8
+27093,Meeker,2015-2019,Leukemia,All Ages,Female,7,56771,10.0 (UR),TRUE,(3.8 - 21.9),3.8,21.9
+27093,Meeker,2015-2019,Leukemia,All Ages,Male,23,58752,28.7,FALSE,(17.9 - 44.2),17.9,44.2
+27093,Meeker,2005-2009,Leukemia,All Ages,Male,10,59291,14.7 (UR),TRUE,(7.0 - 27.4),7,27.4
+27095,Mille Lacs,2015-2019,Leukemia,All Ages,Female,7,64321,9.6 (UR),TRUE,(3.6 - 20.6),3.6,20.6
+27095,Mille Lacs,2010-2014,Leukemia,All Ages,Male,19,64668,24.4,FALSE,(14.6 - 38.7),14.6,38.7
+27095,Mille Lacs,2005-2009,Leukemia,All Ages,Male,19,64959,28.3,FALSE,(17.0 - 44.4),17,44.4
+27095,Mille Lacs,2005-2009,Leukemia,All Ages,Female,8,64743,9.5 (UR),TRUE,(3.9 - 19.7),3.9,19.7
+27095,Mille Lacs,2015-2019,Leukemia,All Ages,Male,17,65005,19.3,FALSE,(11.1 - 31.7),11.1,31.7
+27095,Mille Lacs,2010-2014,Leukemia,All Ages,Female,12,64112,17.4,FALSE,(8.7 - 31.1),8.7,31.1
+27097,Morrison,2005-2009,Leukemia,All Ages,Female,14,81433,12.9,FALSE,(6.9 - 22.5),6.9,22.5
+27097,Morrison,2005-2009,Leukemia,All Ages,Male,19,83496,21.7,FALSE,(13.0 - 34.1),13,34.1
+27097,Morrison,2010-2014,Leukemia,All Ages,Female,8,81834,6.1 (UR),TRUE,(2.5 - 13.2),2.5,13.2
+27097,Morrison,2010-2014,Leukemia,All Ages,Male,16,83453,16.8,FALSE,(9.6 - 27.7),9.6,27.7
+27097,Morrison,2015-2019,Leukemia,All Ages,Male,21,83395,20.2,FALSE,(12.3 - 31.6),12.3,31.6
+27097,Morrison,2015-2019,Leukemia,All Ages,Female,24,81926,22.3,FALSE,(13.8 - 34.3),13.8,34.3
+27099,Mower,2015-2019,Leukemia,All Ages,Female,10,99093,6.6 (UR),TRUE,(2.9 - 13.2),2.9,13.2
+27099,Mower,2015-2019,Leukemia,All Ages,Male,18,99943,14.3,FALSE,(8.4 - 23.1),8.4,23.1
+27099,Mower,2005-2009,Leukemia,All Ages,Male,26,96267,22.5,FALSE,(14.7 - 33.3),14.7,33.3
+27099,Mower,2010-2014,Leukemia,All Ages,Male,20,98116,15.5,FALSE,(9.4 - 24.5),9.4,24.5
+27099,Mower,2005-2009,Leukemia,All Ages,Female,18,97479,10.7,FALSE,(6.1 - 18.0),6.1,18
+27099,Mower,2010-2014,Leukemia,All Ages,Female,9,98594,6.9 (UR),TRUE,(3.0 - 13.9),3,13.9
+27101,Murray,2005-2009,Leukemia,All Ages,Female,5,22385,15.3 (UR),TRUE,(4.5 - 40.7),4.5,40.7
+27101,Murray,2010-2014,Leukemia,All Ages,Female,5,21531,12.5 (UR),TRUE,(3.9 - 35.7),3.9,35.7
+27101,Murray,2015-2019,Leukemia,All Ages,Male,5,20720,17.3 (UR),TRUE,(4.9 - 45.8),4.9,45.8
+27101,Murray,2015-2019,Leukemia,All Ages,Female,3,20759,8.6 (UR),TRUE,(1.8 - 31.5),1.8,31.5
+27101,Murray,2005-2009,Leukemia,All Ages,Male,5,21732,17.5 (UR),TRUE,(5.3 - 44.7),5.3,44.7
+27101,Murray,2010-2014,Leukemia,All Ages,Male,10,21316,29.8 (UR),TRUE,(13.8 - 59.4),13.8,59.4
+27103,Nicollet,2015-2019,Leukemia,All Ages,Female,16,84076,15.5,FALSE,(8.7 - 25.8),8.7,25.8
+27103,Nicollet,2010-2014,Leukemia,All Ages,Female,9,82370,9.6 (UR),TRUE,(4.2 - 18.8),4.2,18.8
+27103,Nicollet,2015-2019,Leukemia,All Ages,Male,16,85695,17,FALSE,(9.5 - 28.1),9.5,28.1
+27103,Nicollet,2005-2009,Leukemia,All Ages,Female,9,80173,10.9 (UR),TRUE,(4.9 - 21.0),4.9,21
+27103,Nicollet,2005-2009,Leukemia,All Ages,Male,9,79595,12.7 (UR),TRUE,(5.7 - 24.2),5.7,24.2
+27103,Nicollet,2010-2014,Leukemia,All Ages,Male,16,82725,18,FALSE,(10.1 - 29.8),10.1,29.8
+27105,Nobles,2010-2014,Leukemia,All Ages,Male,16,55770,25.7,FALSE,(14.6 - 42.1),14.6,42.1
+27105,Nobles,2015-2019,Leukemia,All Ages,Male,13,55957,20.1,FALSE,(10.6 - 35.0),10.6,35
+27105,Nobles,2005-2009,Leukemia,All Ages,Male,11,52776,19.3,FALSE,(9.6 - 34.8),9.6,34.8
+27105,Nobles,2010-2014,Leukemia,All Ages,Female,8,52507,12.2 (UR),TRUE,(4.9 - 25.3),4.9,25.3
+27105,Nobles,2005-2009,Leukemia,All Ages,Female,6,51708,9.3 (UR),TRUE,(2.9 - 22.0),2.9,22
+27105,Nobles,2015-2019,Leukemia,All Ages,Female,10,52713,12.8 (UR),TRUE,(5.7 - 25.6),5.7,25.6
+27107,Norman,2015-2019,Leukemia,All Ages,Female,1,16201,1.9 (UR),TRUE,(0.0 - 26.0),0,26
+27107,Norman,2010-2014,Leukemia,All Ages,Male,5,16717,23.6 (UR),TRUE,(6.6 - 60.7),6.6,60.7
+27107,Norman,2005-2009,Leukemia,All Ages,Female,2,17419,5.7 (UR),TRUE,(0.5 - 31.2),0.5,31.2
+27107,Norman,2010-2014,Leukemia,All Ages,Female,3,16698,9.5 (UR),TRUE,(1.7 - 37.2),1.7,37.2
+27107,Norman,2015-2019,Leukemia,All Ages,Male,7,16397,33.7 (UR),TRUE,(12.7 - 73.8),12.7,73.8
+27107,Norman,2005-2009,Leukemia,All Ages,Male,4,17097,15.5 (UR),TRUE,(4.2 - 44.9),4.2,44.9
+27109,Olmsted,2010-2014,Leukemia,All Ages,Female,51,376087,11.4,FALSE,(8.4 - 15.1),8.4,15.1
+27109,Olmsted,2015-2019,Leukemia,All Ages,Female,46,396051,9.8,FALSE,(7.1 - 13.2),7.1,13.2
+27109,Olmsted,2005-2009,Leukemia,All Ages,Male,72,340984,23.1,FALSE,(18.0 - 29.2),18,29.2
+27109,Olmsted,2005-2009,Leukemia,All Ages,Female,45,355679,12,FALSE,(8.7 - 16.1),8.7,16.1
+27109,Olmsted,2015-2019,Leukemia,All Ages,Male,55,377996,13.7,FALSE,(10.3 - 17.9),10.3,17.9
+27109,Olmsted,2010-2014,Leukemia,All Ages,Male,81,360077,22.1,FALSE,(17.5 - 27.5),17.5,27.5
+27111,Otter Tail,2005-2009,Leukemia,All Ages,Female,21,143567,8.9,FALSE,(5.5 - 14.3),5.5,14.3
+27111,Otter Tail,2015-2019,Leukemia,All Ages,Male,45,146552,18.5,FALSE,(13.3 - 25.3),13.3,25.3
+27111,Otter Tail,2015-2019,Leukemia,All Ages,Female,23,144423,10.3,FALSE,(6.1 - 16.6),6.1,16.6
+27111,Otter Tail,2010-2014,Leukemia,All Ages,Female,39,142662,19.1,FALSE,(13.0 - 27.2),13,27.2
+27111,Otter Tail,2010-2014,Leukemia,All Ages,Male,49,144090,22.2,FALSE,(16.3 - 29.8),16.3,29.8
+27111,Otter Tail,2005-2009,Leukemia,All Ages,Male,41,144286,21.2,FALSE,(15.1 - 29.2),15.1,29.2
+27113,Pennington,2005-2009,Leukemia,All Ages,Male,1,33989,3.5 (UR),TRUE,(0.1 - 17.9),0.1,17.9
+27113,Pennington,2010-2014,Leukemia,All Ages,Male,1,34904,2.5 (UR),TRUE,(0.1 - 14.9),0.1,14.9
+27113,Pennington,2015-2019,Leukemia,All Ages,Male,9,35258,21.0 (UR),TRUE,(9.4 - 41.1),9.4,41.1
+27113,Pennington,2010-2014,Leukemia,All Ages,Female,2,35503,3.1 (UR),TRUE,(0.3 - 14.8),0.3,14.8
+27113,Pennington,2015-2019,Leukemia,All Ages,Female,8,35655,13.9 (UR),TRUE,(5.9 - 29.9),5.9,29.9
+27113,Pennington,2005-2009,Leukemia,All Ages,Female,5,35015,11.7 (UR),TRUE,(3.5 - 29.0),3.5,29
+27115,Pine,2005-2009,Leukemia,All Ages,Male,14,77414,17.6,FALSE,(9.5 - 30.0),9.5,30
+27115,Pine,2010-2014,Leukemia,All Ages,Male,24,78447,25.6,FALSE,(16.2 - 38.7),16.2,38.7
+27115,Pine,2015-2019,Leukemia,All Ages,Male,18,78229,19.5,FALSE,(11.2 - 31.8),11.2,31.8
+27115,Pine,2005-2009,Leukemia,All Ages,Female,8,68541,9.0 (UR),TRUE,(3.7 - 18.8),3.7,18.8
+27115,Pine,2010-2014,Leukemia,All Ages,Female,9,68246,10.1 (UR),TRUE,(4.5 - 20.2),4.5,20.2
+27115,Pine,2015-2019,Leukemia,All Ages,Female,16,67888,14.5,FALSE,(8.0 - 25.3),8,25.3
+27117,Pipestone,2005-2009,Leukemia,All Ages,Female,7,24545,21.2 (UR),TRUE,(7.2 - 48.8),7.2,48.8
+27117,Pipestone,2015-2019,Leukemia,All Ages,Male,4,22418,13.1 (UR),TRUE,(3.5 - 36.5),3.5,36.5
+27117,Pipestone,2005-2009,Leukemia,All Ages,Male,11,23179,39.1,FALSE,(19.2 - 71.7),19.2,71.7
+27117,Pipestone,2010-2014,Leukemia,All Ages,Female,5,24187,15.6 (UR),TRUE,(4.4 - 40.5),4.4,40.5
+27117,Pipestone,2015-2019,Leukemia,All Ages,Female,9,23535,21.4 (UR),TRUE,(9.0 - 46.1),9,46.1
+27117,Pipestone,2010-2014,Leukemia,All Ages,Male,6,22967,22.3 (UR),TRUE,(8.0 - 50.2),8,50.2
+27119,Polk,2015-2019,Leukemia,All Ages,Male,29,79198,31.5,FALSE,(20.9 - 45.7),20.9,45.7
+27119,Polk,2010-2014,Leukemia,All Ages,Female,15,78728,13.8,FALSE,(7.5 - 23.7),7.5,23.7
+27119,Polk,2010-2014,Leukemia,All Ages,Male,17,79097,18.5,FALSE,(10.6 - 30.1),10.6,30.1
+27119,Polk,2015-2019,Leukemia,All Ages,Female,16,78409,15.6,FALSE,(8.7 - 26.3),8.7,26.3
+27119,Polk,2005-2009,Leukemia,All Ages,Male,18,77994,21.6,FALSE,(12.7 - 34.3),12.7,34.3
+27119,Polk,2005-2009,Leukemia,All Ages,Female,16,78195,14.7,FALSE,(8.1 - 25.0),8.1,25
+27121,Pope,2010-2014,Leukemia,All Ages,Male,7,27615,16.7 (UR),TRUE,(6.3 - 37.9),6.3,37.9
+27121,Pope,2015-2019,Leukemia,All Ages,Female,2,27064,9.1 (UR),TRUE,(1.1 - 31.9),1.1,31.9
+27121,Pope,2005-2009,Leukemia,All Ages,Female,6,27622,15.7 (UR),TRUE,(5.5 - 37.3),5.5,37.3
+27121,Pope,2010-2014,Leukemia,All Ages,Female,6,26964,14.6 (UR),TRUE,(4.2 - 37.5),4.2,37.5
+27121,Pope,2005-2009,Leukemia,All Ages,Male,8,27863,19.7 (UR),TRUE,(8.5 - 41.2),8.5,41.2
+27121,Pope,2015-2019,Leukemia,All Ages,Male,11,28174,31,FALSE,(14.4 - 59.1),14.4,59.1
+27123,Ramsey,2005-2009,Leukemia,All Ages,Male,233,1213050,22,FALSE,(19.2 - 25.0),19.2,25
+27123,Ramsey,2015-2019,Leukemia,All Ages,Female,193,1395141,12.4,FALSE,(10.6 - 14.3),10.6,14.3
+27123,Ramsey,2015-2019,Leukemia,All Ages,Male,278,1327071,21.3,FALSE,(18.8 - 24.0),18.8,24
+27123,Ramsey,2005-2009,Leukemia,All Ages,Female,154,1290753,10.7,FALSE,(9.0 - 12.6),9,12.6
+27123,Ramsey,2010-2014,Leukemia,All Ages,Female,197,1340417,13.2,FALSE,(11.4 - 15.2),11.4,15.2
+27123,Ramsey,2010-2014,Leukemia,All Ages,Male,280,1265732,24,FALSE,(21.2 - 27.1),21.2,27.1
+27125,Red Lake,2015-2019,Leukemia,All Ages,Female,2,9874,19.1 (UR),TRUE,(1.7 - 75.1),1.7,75.1
+27125,Red Lake,2005-2009,Leukemia,All Ages,Female,0,10187,null (UR),TRUE, ,null,null
+27125,Red Lake,2015-2019,Leukemia,All Ages,Male,3,10200,19.4 (UR),TRUE,(4.0 - 66.2),4,66.2
+27125,Red Lake,2005-2009,Leukemia,All Ages,Male,4,10401,27.6 (UR),TRUE,(7.5 - 77.2),7.5,77.2
+27125,Red Lake,2010-2014,Leukemia,All Ages,Female,2,10001,21.4 (UR),TRUE,(2.0 - 79.5),2,79.5
+27125,Red Lake,2010-2014,Leukemia,All Ages,Male,2,10249,16.2 (UR),TRUE,(1.9 - 63.9),1.9,63.9
+27127,Redwood,2015-2019,Leukemia,All Ages,Female,4,38275,6.6 (UR),TRUE,(1.8 - 19.5),1.8,19.5
+27127,Redwood,2005-2009,Leukemia,All Ages,Male,10,40000,19.5 (UR),TRUE,(9.3 - 37.0),9.3,37
+27127,Redwood,2010-2014,Leukemia,All Ages,Female,7,39830,13.4 (UR),TRUE,(5.0 - 29.8),5,29.8
+27127,Redwood,2015-2019,Leukemia,All Ages,Male,18,38032,33.2,FALSE,(19.3 - 54.4),19.3,54.4
+27127,Redwood,2005-2009,Leukemia,All Ages,Female,7,40386,11.1 (UR),TRUE,(3.6 - 26.6),3.6,26.6
+27127,Redwood,2010-2014,Leukemia,All Ages,Male,8,39308,16.2 (UR),TRUE,(6.6 - 33.6),6.6,33.6
+27129,Renville,2010-2014,Leukemia,All Ages,Female,7,37638,14.8 (UR),TRUE,(5.2 - 33.1),5.2,33.1
+27129,Renville,2015-2019,Leukemia,All Ages,Female,6,35997,10.7 (UR),TRUE,(3.5 - 26.7),3.5,26.7
+27129,Renville,2015-2019,Leukemia,All Ages,Male,16,37264,33.5,FALSE,(18.4 - 56.6),18.4,56.6
+27129,Renville,2005-2009,Leukemia,All Ages,Male,13,40720,24.9,FALSE,(13.1 - 43.7),13.1,43.7
+27129,Renville,2005-2009,Leukemia,All Ages,Female,8,40189,13.0 (UR),TRUE,(5.4 - 27.9),5.4,27.9
+27129,Renville,2010-2014,Leukemia,All Ages,Male,16,38758,29.5,FALSE,(16.5 - 49.8),16.5,49.8
+27131,Rice,2005-2009,Leukemia,All Ages,Female,22,152570,13.7,FALSE,(8.5 - 20.9),8.5,20.9
+27131,Rice,2010-2014,Leukemia,All Ages,Male,31,164887,18.5,FALSE,(12.4 - 26.5),12.4,26.5
+27131,Rice,2005-2009,Leukemia,All Ages,Male,42,159468,29.3,FALSE,(21.0 - 39.7),21,39.7
+27131,Rice,2015-2019,Leukemia,All Ages,Female,12,162072,5.5,FALSE,(2.7 - 10.2),2.7,10.2
+27131,Rice,2015-2019,Leukemia,All Ages,Male,45,168853,25.2,FALSE,(18.2 - 33.9),18.2,33.9
+27131,Rice,2010-2014,Leukemia,All Ages,Female,16,157896,9.5,FALSE,(5.4 - 15.6),5.4,15.6
+27133,Rock,2010-2014,Leukemia,All Ages,Female,5,24104,16.1 (UR),TRUE,(4.5 - 41.5),4.5,41.5
+27133,Rock,2015-2019,Leukemia,All Ages,Female,3,23859,7.8 (UR),TRUE,(1.6 - 27.3),1.6,27.3
+27133,Rock,2010-2014,Leukemia,All Ages,Male,6,23441,18.9 (UR),TRUE,(6.9 - 43.7),6.9,43.7
+27133,Rock,2005-2009,Leukemia,All Ages,Male,5,23749,18.3 (UR),TRUE,(5.6 - 44.7),5.6,44.7
+27133,Rock,2015-2019,Leukemia,All Ages,Male,4,23150,13.8 (UR),TRUE,(3.6 - 38.0),3.6,38
+27133,Rock,2005-2009,Leukemia,All Ages,Female,1,24110,1.3 (UR),TRUE,(0.0 - 17.2),0,17.2
+27135,Roseau,2015-2019,Leukemia,All Ages,Male,15,39485,32.7,FALSE,(17.7 - 55.7),17.7,55.7
+27135,Roseau,2005-2009,Leukemia,All Ages,Female,6,39086,12.4 (UR),TRUE,(4.3 - 28.6),4.3,28.6
+27135,Roseau,2010-2014,Leukemia,All Ages,Male,13,39769,28.9,FALSE,(15.1 - 50.6),15.1,50.6
+27135,Roseau,2005-2009,Leukemia,All Ages,Male,7,40887,15.1 (UR),TRUE,(6.0 - 32.0),6,32
+27135,Roseau,2010-2014,Leukemia,All Ages,Female,0,37995,null (UR),TRUE, ,null,null
+27135,Roseau,2015-2019,Leukemia,All Ages,Female,5,37321,9.8 (UR),TRUE,(3.0 - 25.0),3,25
+27137,St. Louis,2015-2019,Leukemia,All Ages,Male,124,500923,19.9,FALSE,(16.4 - 23.9),16.4,23.9
+27137,St. Louis,2015-2019,Leukemia,All Ages,Female,110,497873,15.3,FALSE,(12.4 - 18.8),12.4,18.8
+27137,St. Louis,2005-2009,Leukemia,All Ages,Male,96,495752,17.6,FALSE,(14.2 - 21.5),14.2,21.5
+27137,St. Louis,2010-2014,Leukemia,All Ages,Male,124,502780,21.2,FALSE,(17.6 - 25.5),17.6,25.5
+27137,St. Louis,2005-2009,Leukemia,All Ages,Female,63,499894,9.4,FALSE,(7.1 - 12.2),7.1,12.2
+27137,St. Louis,2010-2014,Leukemia,All Ages,Female,66,499234,9.4,FALSE,(7.2 - 12.2),7.2,12.2
+27139,Scott,2005-2009,Leukemia,All Ages,Male,41,308689,23.3,FALSE,(16.1 - 32.3),16.1,32.3
+27139,Scott,2015-2019,Leukemia,All Ages,Male,64,362058,21.5,FALSE,(16.3 - 27.7),16.3,27.7
+27139,Scott,2015-2019,Leukemia,All Ages,Female,56,364319,15.3,FALSE,(11.5 - 19.9),11.5,19.9
+27139,Scott,2010-2014,Leukemia,All Ages,Female,34,338316,11.5,FALSE,(7.8 - 16.3),7.8,16.3
+27139,Scott,2010-2014,Leukemia,All Ages,Male,58,336274,21.7,FALSE,(16.1 - 28.5),16.1,28.5
+27139,Scott,2005-2009,Leukemia,All Ages,Female,27,308628,11.6,FALSE,(7.4 - 17.1),7.4,17.1
+27141,Sherburne,2010-2014,Leukemia,All Ages,Male,43,229372,24.2,FALSE,(17.1 - 33.1),17.1,33.1
+27141,Sherburne,2005-2009,Leukemia,All Ages,Male,33,218155,20.8,FALSE,(14.0 - 29.6),14,29.6
+27141,Sherburne,2005-2009,Leukemia,All Ages,Female,22,208446,12.5,FALSE,(7.7 - 19.1),7.7,19.1
+27141,Sherburne,2015-2019,Leukemia,All Ages,Male,59,242139,31,FALSE,(23.2 - 40.5),23.2,40.5
+27141,Sherburne,2015-2019,Leukemia,All Ages,Female,21,230175,8.6,FALSE,(5.3 - 13.3),5.3,13.3
+27141,Sherburne,2010-2014,Leukemia,All Ages,Female,24,219113,11.5,FALSE,(7.2 - 17.2),7.2,17.2
+27143,Sibley,2010-2014,Leukemia,All Ages,Male,8,37846,19.3 (UR),TRUE,(8.3 - 38.6),8.3,38.6
+27143,Sibley,2005-2009,Leukemia,All Ages,Female,3,37577,6.9 (UR),TRUE,(1.4 - 21.0),1.4,21
+27143,Sibley,2015-2019,Leukemia,All Ages,Female,6,36905,12.3 (UR),TRUE,(4.2 - 28.9),4.2,28.9
+27143,Sibley,2010-2014,Leukemia,All Ages,Female,9,37641,19.1 (UR),TRUE,(8.5 - 37.8),8.5,37.8
+27143,Sibley,2005-2009,Leukemia,All Ages,Male,7,38399,16.7 (UR),TRUE,(6.7 - 34.8),6.7,34.8
+27143,Sibley,2015-2019,Leukemia,All Ages,Male,11,37557,24.6,FALSE,(12.0 - 45.5),12,45.5
+27145,Stearns,2015-2019,Leukemia,All Ages,Female,41,393028,8.6,FALSE,(6.1 - 11.8),6.1,11.8
+27145,Stearns,2010-2014,Leukemia,All Ages,Male,81,383211,21.2,FALSE,(16.7 - 26.4),16.7,26.4
+27145,Stearns,2015-2019,Leukemia,All Ages,Male,77,399232,18.2,FALSE,(14.3 - 22.9),14.3,22.9
+27145,Stearns,2010-2014,Leukemia,All Ages,Female,48,377344,12,FALSE,(8.8 - 16.1),8.8,16.1
+27145,Stearns,2005-2009,Leukemia,All Ages,Female,50,361942,13.4,FALSE,(9.9 - 17.8),9.9,17.8
+27145,Stearns,2005-2009,Leukemia,All Ages,Male,57,368721,17.7,FALSE,(13.3 - 22.9),13.3,22.9
+27147,Steele,2010-2014,Leukemia,All Ages,Male,20,90245,20.5,FALSE,(12.4 - 31.9),12.4,31.9
+27147,Steele,2005-2009,Leukemia,All Ages,Male,20,89801,23.5,FALSE,(14.3 - 36.3),14.3,36.3
+27147,Steele,2005-2009,Leukemia,All Ages,Female,16,91391,14.9,FALSE,(8.4 - 24.6),8.4,24.6
+27147,Steele,2010-2014,Leukemia,All Ages,Female,12,91977,10.1,FALSE,(5.1 - 18.1),5.1,18.1
+27147,Steele,2015-2019,Leukemia,All Ages,Male,21,91128,18.8,FALSE,(11.4 - 29.3),11.4,29.3
+27147,Steele,2015-2019,Leukemia,All Ages,Female,7,92289,5.7 (UR),TRUE,(2.2 - 12.6),2.2,12.6
+27149,Stevens,2015-2019,Leukemia,All Ages,Female,1,24447,4.0 (UR),TRUE,(0.1 - 24.2),0.1,24.2
+27149,Stevens,2005-2009,Leukemia,All Ages,Male,7,23923,27.0 (UR),TRUE,(10.7 - 57.0),10.7,57
+27149,Stevens,2010-2014,Leukemia,All Ages,Male,3,24145,13.1 (UR),TRUE,(2.7 - 38.6),2.7,38.6
+27149,Stevens,2005-2009,Leukemia,All Ages,Female,2,24719,8.6 (UR),TRUE,(1.0 - 31.9),1,31.9
+27149,Stevens,2010-2014,Leukemia,All Ages,Female,2,24600,6.3 (UR),TRUE,(0.7 - 27.0),0.7,27
+27149,Stevens,2015-2019,Leukemia,All Ages,Male,14,24500,51.6,FALSE,(28.0 - 88.1),28,88.1
+27151,Swift,2005-2009,Leukemia,All Ages,Female,5,24644,21.1 (UR),TRUE,(6.0 - 51.4),6,51.4
+27151,Swift,2005-2009,Leukemia,All Ages,Male,3,25558,9.9 (UR),TRUE,(2.0 - 30.5),2,30.5
+27151,Swift,2010-2014,Leukemia,All Ages,Male,7,24223,20.3 (UR),TRUE,(7.7 - 45.2),7.7,45.2
+27151,Swift,2015-2019,Leukemia,All Ages,Female,7,23235,21.3 (UR),TRUE,(7.1 - 49.8),7.1,49.8
+27151,Swift,2010-2014,Leukemia,All Ages,Female,5,23877,13.0 (UR),TRUE,(3.4 - 36.4),3.4,36.4
+27151,Swift,2015-2019,Leukemia,All Ages,Male,8,23559,22.6 (UR),TRUE,(9.6 - 47.7),9.6,47.7
+27153,Todd,2005-2009,Leukemia,All Ages,Male,5,63022,7.4 (UR),TRUE,(2.4 - 17.6),2.4,17.6
+27153,Todd,2010-2014,Leukemia,All Ages,Female,13,60134,17.5,FALSE,(9.0 - 31.1),9,31.1
+27153,Todd,2015-2019,Leukemia,All Ages,Male,17,63040,22,FALSE,(12.1 - 36.8),12.1,36.8
+27153,Todd,2015-2019,Leukemia,All Ages,Female,7,59429,7.3 (UR),TRUE,(2.9 - 16.7),2.9,16.7
+27153,Todd,2010-2014,Leukemia,All Ages,Male,13,63145,15.7,FALSE,(8.2 - 27.8),8.2,27.8
+27153,Todd,2005-2009,Leukemia,All Ages,Female,9,60723,13.4 (UR),TRUE,(5.8 - 26.3),5.8,26.3
+27155,Traverse,2015-2019,Leukemia,All Ages,Male,3,8337,17.7 (UR),TRUE,(3.5 - 70.4),3.5,70.4
+27155,Traverse,2005-2009,Leukemia,All Ages,Female,1,9360,9.7 (UR),TRUE,(0.2 - 62.1),0.2,62.1
+27155,Traverse,2010-2014,Leukemia,All Ages,Female,0,8615,null (UR),TRUE, ,null,null
+27155,Traverse,2010-2014,Leukemia,All Ages,Male,5,8593,29.7 (UR),TRUE,(9.2 - 86.2),9.2,86.2
+27155,Traverse,2005-2009,Leukemia,All Ages,Male,3,9219,20.6 (UR),TRUE,(4.2 - 74.2),4.2,74.2
+27155,Traverse,2015-2019,Leukemia,All Ages,Female,0,8220,null (UR),TRUE, ,null,null
+27157,Wabasha,2005-2009,Leukemia,All Ages,Female,8,54191,12.7 (UR),TRUE,(5.3 - 25.7),5.3,25.7
+27157,Wabasha,2005-2009,Leukemia,All Ages,Male,15,54570,23.2,FALSE,(12.9 - 38.8),12.9,38.8
+27157,Wabasha,2015-2019,Leukemia,All Ages,Male,12,53873,17.1,FALSE,(8.6 - 31.1),8.6,31.1
+27157,Wabasha,2010-2014,Leukemia,All Ages,Female,8,53996,13.0 (UR),TRUE,(5.2 - 27.1),5.2,27.1
+27157,Wabasha,2010-2014,Leukemia,All Ages,Male,21,53855,31.5,FALSE,(19.1 - 49.5),19.1,49.5
+27157,Wabasha,2015-2019,Leukemia,All Ages,Female,4,53811,4.6 (UR),TRUE,(1.2 - 13.9),1.2,13.9
+27159,Wadena,2010-2014,Leukemia,All Ages,Female,8,34525,15.9 (UR),TRUE,(6.1 - 34.8),6.1,34.8
+27159,Wadena,2005-2009,Leukemia,All Ages,Female,8,34910,12.5 (UR),TRUE,(5.2 - 28.0),5.2,28
+27159,Wadena,2005-2009,Leukemia,All Ages,Male,8,34103,17.0 (UR),TRUE,(7.3 - 35.1),7.3,35.1
+27159,Wadena,2015-2019,Leukemia,All Ages,Female,10,34398,16.9 (UR),TRUE,(7.4 - 34.8),7.4,34.8
+27159,Wadena,2010-2014,Leukemia,All Ages,Male,16,33780,36,FALSE,(20.0 - 60.5),20,60.5
+27159,Wadena,2015-2019,Leukemia,All Ages,Male,9,33871,18.8 (UR),TRUE,(8.4 - 37.6),8.4,37.6
+27161,Waseca,2010-2014,Leukemia,All Ages,Female,8,50465,9.6 (UR),TRUE,(4.0 - 20.8),4,20.8
+27161,Waseca,2005-2009,Leukemia,All Ages,Female,6,49521,9.8 (UR),TRUE,(3.5 - 22.4),3.5,22.4
+27161,Waseca,2010-2014,Leukemia,All Ages,Male,13,45002,24,FALSE,(12.6 - 41.9),12.6,41.9
+27161,Waseca,2015-2019,Leukemia,All Ages,Male,10,44865,15.1 (UR),TRUE,(7.1 - 29.4),7.1,29.4
+27161,Waseca,2005-2009,Leukemia,All Ages,Male,5,46472,11.1 (UR),TRUE,(3.5 - 26.0),3.5,26
+27161,Waseca,2015-2019,Leukemia,All Ages,Female,6,48833,9.9 (UR),TRUE,(3.4 - 22.8),3.4,22.8
+27163,Washington,2015-2019,Leukemia,All Ages,Female,92,647153,12.2,FALSE,(9.7 - 15.0),9.7,15
+27163,Washington,2005-2009,Leukemia,All Ages,Male,120,566572,26,FALSE,(21.3 - 31.4),21.3,31.4
+27163,Washington,2005-2009,Leukemia,All Ages,Female,68,577237,12.6,FALSE,(9.8 - 16.1),9.8,16.1
+27163,Washington,2010-2014,Leukemia,All Ages,Male,134,602828,23,FALSE,(19.1 - 27.4),19.1,27.4
+27163,Washington,2010-2014,Leukemia,All Ages,Female,89,615641,14,FALSE,(11.2 - 17.3),11.2,17.3
+27163,Washington,2015-2019,Leukemia,All Ages,Male,125,632538,19.3,FALSE,(16.0 - 23.1),16,23.1
+27165,Watonwan,2015-2019,Leukemia,All Ages,Male,7,27153,17.5 (UR),TRUE,(6.9 - 38.6),6.9,38.6
+27165,Watonwan,2015-2019,Leukemia,All Ages,Female,1,27705,2.7 (UR),TRUE,(0.1 - 18.1),0.1,18.1
+27165,Watonwan,2010-2014,Leukemia,All Ages,Female,3,27812,6.7 (UR),TRUE,(1.2 - 23.7),1.2,23.7
+27165,Watonwan,2005-2009,Leukemia,All Ages,Female,3,28295,8.5 (UR),TRUE,(1.4 - 27.6),1.4,27.6
+27165,Watonwan,2010-2014,Leukemia,All Ages,Male,6,27695,16.5 (UR),TRUE,(5.8 - 38.3),5.8,38.3
+27165,Watonwan,2005-2009,Leukemia,All Ages,Male,5,27927,13.7 (UR),TRUE,(4.4 - 33.8),4.4,33.8
+27167,Wilkin,2010-2014,Leukemia,All Ages,Female,0,16065,null (UR),TRUE, ,null,null
+27167,Wilkin,2015-2019,Leukemia,All Ages,Male,5,16233,22.9 (UR),TRUE,(7.3 - 57.4),7.3,57.4
+27167,Wilkin,2005-2009,Leukemia,All Ages,Female,3,16450,11.0 (UR),TRUE,(2.2 - 39.5),2.2,39.5
+27167,Wilkin,2005-2009,Leukemia,All Ages,Male,3,16960,14.1 (UR),TRUE,(2.9 - 44.6),2.9,44.6
+27167,Wilkin,2015-2019,Leukemia,All Ages,Female,5,15220,24.4 (UR),TRUE,(7.2 - 62.8),7.2,62.8
+27167,Wilkin,2010-2014,Leukemia,All Ages,Male,2,16654,7.5 (UR),TRUE,(0.9 - 33.9),0.9,33.9
+27169,Winona,2010-2014,Leukemia,All Ages,Male,17,126580,14.2,FALSE,(8.2 - 22.9),8.2,22.9
+27169,Winona,2015-2019,Leukemia,All Ages,Male,40,125740,27.9,FALSE,(19.7 - 38.7),19.7,38.7
+27169,Winona,2005-2009,Leukemia,All Ages,Female,13,130242,7,FALSE,(3.6 - 12.7),3.6,12.7
+27169,Winona,2015-2019,Leukemia,All Ages,Female,19,127885,12.4,FALSE,(7.2 - 20.0),7.2,20
+27169,Winona,2005-2009,Leukemia,All Ages,Male,28,125613,22.6,FALSE,(14.9 - 32.9),14.9,32.9
+27169,Winona,2010-2014,Leukemia,All Ages,Female,19,129944,12.5,FALSE,(7.2 - 20.4),7.2,20.4
+27171,Wright,2005-2009,Leukemia,All Ages,Female,23,292283,8.4,FALSE,(5.3 - 12.7),5.3,12.7
+27171,Wright,2010-2014,Leukemia,All Ages,Male,56,320157,20.4,FALSE,(15.2 - 26.7),15.2,26.7
+27171,Wright,2010-2014,Leukemia,All Ages,Female,37,316411,11.9,FALSE,(8.3 - 16.4),8.3,16.4
+27171,Wright,2015-2019,Leukemia,All Ages,Male,69,339177,21.8,FALSE,(16.8 - 27.7),16.8,27.7
+27171,Wright,2015-2019,Leukemia,All Ages,Female,34,333015,10.1,FALSE,(6.9 - 14.2),6.9,14.2
+27171,Wright,2005-2009,Leukemia,All Ages,Male,44,297091,20.1,FALSE,(14.3 - 27.3),14.3,27.3
+27173,Yellow Medicine,2010-2014,Leukemia,All Ages,Female,5,24909,15.6 (UR),TRUE,(4.9 - 38.9),4.9,38.9
+27173,Yellow Medicine,2005-2009,Leukemia,All Ages,Female,9,25982,24.7 (UR),TRUE,(10.5 - 50.8),10.5,50.8
+27173,Yellow Medicine,2005-2009,Leukemia,All Ages,Male,5,26856,13.3 (UR),TRUE,(4.3 - 33.5),4.3,33.5
+27173,Yellow Medicine,2015-2019,Leukemia,All Ages,Male,12,24762,38,FALSE,(19.0 - 69.1),19,69.1
+27173,Yellow Medicine,2010-2014,Leukemia,All Ages,Male,7,26011,18.8 (UR),TRUE,(7.4 - 41.5),7.4,41.5
+27173,Yellow Medicine,2015-2019,Leukemia,All Ages,Female,7,24307,15.2 (UR),TRUE,(4.8 - 38.6),4.8,38.6

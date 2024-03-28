@@ -1,0 +1,259 @@
+---
+title: "Homework 3"
+author: "Peter Tran"
+output: pdf_document
+---
+
+1. Obtain data on 2021 STD cases in Georgia using the following steps.
+
+    a-h. **ALREADY DONE**
+    
+    i. Download the Georgia shape file using the tigris package in R.
+
+```{r, warning = F, message = F}
+library(rgdal)
+library(tigris)
+```
+
+```{r}
+ga <- counties("Georgia")
+```
+
+    j. Load all three data frames in R (the shape file from tigris, the STD file, and the population file). Merge the STD and the population data frames into the shape file for Georgia.  Be careful, the Georgia shape files has counties in a random order.
+
+```{r, warning = F, message = F}
+library(readxl)
+library(tidyverse)
+```
+
+```{r}
+std <- read_excel("../data/ga_std.xlsx", skip = 2, n_max = 159) %>%
+  mutate(`...1` = toupper(`...1`)) %>%
+  mutate(`STD Cases` = replace(`STD Cases`, `...1` == "GLASCOCK", 20)) %>%
+  mutate(`STD Cases` = as.numeric(gsub(",", "", `STD Cases`)))
+pop <- read_csv("../data/georgia_population_22.csv")
+
+data <- ga %>%
+  mutate(NAME = toupper(NAME)) %>%
+  inner_join(std, by = c("NAME" = "...1")) %>%
+  inner_join(pop, by = c("NAME" = "County"))
+```
+
+    k. Use the head function in R to print out the first few rows of your combined file.
+    
+```{r}
+head(data)
+```
+
+2. Compute the raw STD rate. Compute Moran’s I for this variable. Test the hypothesis that there is no spatial autocorrelation.  Report and discuss your results.
+
+```{r, warning = F, message = F}
+library(ape)
+library(spdep)
+library(tmap)
+```
+
+```{r}
+data$stdrate <- data$`STD Cases`/data$Pop
+
+Moran.I(data$stdrate, listw2mat(nb2listw(poly2nb(data, queen = F))))
+```
+
+It's difficult to interpret Moran's I by itself, let's plot a map to accompany it.
+
+```{r}
+tm_shape(data) +
+  tm_polygons(col = "stdrate", title = "STD Rate")
+```
+
+The p-value for Moran's I is significant. This tells us that there is spatial autocorrelation present in our data. Looking at the map above, we can see that STD rates tend to be a bit higher in the southern part of the state compared to the north, with some noticeable clustering of the 3 darkest color shown.
+
+3. Run the following models:
+
+    a. Non-spatial model with just the $v_i$ terms.
+
+```{r, warning = F, message = F}
+library(nimble)
+```
+
+```{r}
+v_i_code <- nimbleCode({
+  for (i in 1:N) {
+    y[i] ~ dpois(pop[i]*theta[i])
+    log(theta[i]) <- beta_0+v[i]
+    v[i] ~ dnorm(0, tau_v)
+  }
+  beta_0 ~ dnorm(-3, 1/10)
+  tau_v ~ dgamma(1, 1/10000)
+})
+
+v_i_data <- list(y = data$`STD Cases`)
+
+v_i_consts <- list(N = nrow(data), pop = data$Pop)
+
+v_i_inits <- list(beta_0 = 0, v = rep(0, nrow(data)), tau_v = 0.1)
+
+v_i_model <- nimbleModel(v_i_code, data = v_i_data, constants = v_i_consts,
+                         inits = v_i_inits)
+v_i_compile <- compileNimble(v_i_model)
+v_i_conf <- configureMCMC(v_i_compile, print = T, thin = 100, enableWAIC = T)
+v_i_conf$addMonitors(c("beta_0", "tau_v", "theta"))
+v_i_mcmc <- buildMCMC(v_i_conf)
+v_i_mcmc_compile <- compileNimble(v_i_mcmc, project = v_i_model)
+
+v_i_samples <- runMCMC(v_i_mcmc_compile, niter = 120000, nburnin = 20000,
+                       inits = v_i_inits, nchains = 1, samplesAsCodaMCMC = T, WAIC = T)
+data$v_i_rates <- apply(v_i_samples$samples[,3:ncol(v_i_samples$samples)], 2, mean)
+```
+```{r}
+ts.plot(v_i_samples$samples[,"beta_0"], xlab = "iteration", col = "red", lwd = 1.5,
+        ylab = expression(beta_0), main = expression(beta_0))
+```
+```{r}
+ts.plot(v_i_samples$samples[,"tau_v"], xlab = "iteration", col = "red", lwd = 1.5,
+        ylab = expression(tau_v), main = expression(tau_v))
+```
+
+    b. Spatial model with just the $s_i$ terms.
+
+```{r}
+data_sp <- as(data, "Spatial")
+data_nb <- poly2nb(data_sp, queen = F)
+
+num <- map_int(data_nb, length)
+
+adj <- c()
+for (i in 1:nrow(data_sp))
+  adj <- c(adj, data_nb[[i]])
+```
+
+```{r}
+s_i_code <- nimbleCode({
+  for (i in 1:N) {
+    y[i] ~ dpois(pop[i]*theta[i])
+    log(theta[i]) <- beta_0+s[i]
+  }
+  s[1:N] ~ dcar_normal(adj[1:L], weights[1:L], num[1:N], tau_s, zero_mean = 1)
+  beta_0 ~ dnorm(-3, 1/10)
+  tau_s ~ dgamma(1, 1/10000)
+})
+
+s_i_data <- list(y = data$`STD Cases`)
+
+s_i_consts <- list(N = nrow(data), pop = data$Pop, adj = adj, num = num, L = length(adj),
+                   weights = rep(1, length(adj)))
+
+s_i_inits <- list(beta_0 = 0, s = rep(0, nrow(data)), tau_s = 0.1)
+
+s_i_model <- nimbleModel(s_i_code, data = s_i_data, constants = s_i_consts,
+                         inits = s_i_inits)
+s_i_compile <- compileNimble(s_i_model)
+s_i_conf <- configureMCMC(s_i_compile, print = T, thin = 100, enableWAIC = T)
+s_i_conf$addMonitors(c("beta_0", "tau_s", "theta"))
+s_i_mcmc <- buildMCMC(s_i_conf)
+s_i_mcmc_compile <- compileNimble(s_i_mcmc, project = s_i_model)
+
+s_i_samples <- runMCMC(s_i_mcmc_compile, niter = 120000, nburnin = 20000,
+                       inits = s_i_inits, nchains = 1, samplesAsCodaMCMC = T, WAIC = T)
+data$s_i_rates <- apply(s_i_samples$samples[,3:ncol(s_i_samples$samples)], 2, mean)
+```
+```{r}
+ts.plot(s_i_samples$samples[,"beta_0"], xlab = "iteration", col = "red", lwd = 1.5,
+        ylab = expression(beta_0), main = expression(beta_0))
+```
+```{r}
+ts.plot(s_i_samples$samples[,"tau_s"], xlab = "iteration", col = "red", lwd = 1.5,
+        ylab = expression(tau_s), main = expression(tau_s))
+```
+
+    c. Spatial model with both $v_i$ and $s_i$ terms.
+
+```{r}
+v_i_s_i_code <- nimbleCode({
+  for (i in 1:N) {
+    y[i] ~ dpois(pop[i]*theta[i])
+    log(theta[i]) <- beta_0+s[i]
+    v[i] ~ dnorm(0, tau_v)
+  }
+  s[1:N] ~ dcar_normal(adj[1:L], weights[1:L], num[1:N], tau_s, zero_mean = 1)
+  beta_0 ~ dnorm(-3, 1/10)
+  tau_v ~ dgamma(1, 1/10000)
+  tau_s ~ dgamma(1, 1/10000)
+})
+
+v_i_s_i_data <- list(y = data$`STD Cases`)
+
+v_i_s_i_consts <- list(N = nrow(data), pop = data$Pop, adj = adj, num = num,
+                       L = length(adj), weights = rep(1, length(adj)))
+
+v_i_s_i_inits <- list(beta_0 = 0, v = rep(0, nrow(data)), tau_v = 0.1,
+                      s = rep(0, nrow(data)), tau_s = 0.1)
+
+v_i_s_i_model <- nimbleModel(v_i_s_i_code, data = v_i_s_i_data,
+                             constants = v_i_s_i_consts, inits = v_i_s_i_inits)
+v_i_s_i_compile <- compileNimble(v_i_s_i_model)
+v_i_s_i_conf <- configureMCMC(v_i_s_i_compile, print = T, thin = 100, enableWAIC = T)
+v_i_s_i_conf$addMonitors(c("beta_0", "tau_s", "theta"))
+v_i_s_i_mcmc <- buildMCMC(v_i_s_i_conf)
+v_i_s_i_mcmc_compile <- compileNimble(v_i_s_i_mcmc, project = v_i_s_i_model)
+
+v_i_s_i_samples <- runMCMC(v_i_s_i_mcmc_compile, niter = 120000, nburnin = 20000,
+                           inits = v_i_s_i_inits, nchains = 1, samplesAsCodaMCMC = T,
+                           WAIC = T)
+data$v_i_s_i_rates <- apply(v_i_s_i_samples$samples[,4:ncol(v_i_s_i_samples$samples)],
+                            2, mean)
+```
+```{r}
+ts.plot(v_i_s_i_samples$samples[,"beta_0"], xlab = "iteration", col = "red", lwd = 1.5,
+        ylab = expression(beta_0), main = expression(beta_0))
+```
+```{r}
+ts.plot(v_i_s_i_samples$samples[,"tau_v"], xlab = "iteration", col = "red", lwd = 1.5,
+        ylab = expression(tau_v), main = expression(tau_v))
+```
+```{r}
+ts.plot(v_i_s_i_samples$samples[,"tau_s"], xlab = "iteration", col = "red", lwd = 1.5,
+        ylab = expression(tau_s), main = expression(tau_s))
+```
+
+4. Create four choropleth maps, one for the raw rates and one for each of the above models.
+
+```{r, warning = F, message = F}
+library(grid)
+```
+
+```{r, fig.width = 12, fig.height = 8}
+raw_plot <- tm_shape(data) + 
+  tm_polygons(col = "stdrate", title = "Raw STD rates")
+
+v_i_plot <- tm_shape(data) +
+  tm_polygons(col = "v_i_rates", breaks = seq(0, 0.020, 0.005), title = "v_i STD rates")
+
+s_i_plot <- tm_shape(data) +
+  tm_polygons(col = "s_i_rates", breaks = seq(0, 0.020, 0.005), title = "s_i STD rates")
+  
+v_i_s_i_plot <- tm_shape(data) +
+  tm_polygons(col = "v_i_s_i_rates", breaks = seq(0, 0.020, 0.005),
+              title = "v_i_s_i STD rates")
+
+grid.newpage()
+pushViewport(viewport(layout = grid.layout(2, 2)))
+print(raw_plot, vp = viewport(layout.pos.row = 1, layout.pos.col = 1, height = 5))
+print(v_i_plot, vp = viewport(layout.pos.row = 1, layout.pos.col = 2, height = 5))
+print(s_i_plot, vp = viewport(layout.pos.row = 2, layout.pos.col = 1, height = 5))
+print(v_i_s_i_plot, vp = viewport(layout.pos.row = 2, layout.pos.col = 2, height = 5))
+```
+
+5. Compute the AIC for each of the models from problem 3. Report and discuss your results.
+
+```{r}
+v_i_samples$WAIC
+```
+```{r}
+s_i_samples$WAIC
+```
+```{r}
+v_i_s_i_samples$WAIC
+```
+
+We can see that the model with the lowest WAIC is the non-spatial model with just the $v_i$ terms. Additionally, it's not that different from the other models, which we can see reflected in the choropleth maps above. In fact, all 3 models aren't really that different from the raw rates either!
